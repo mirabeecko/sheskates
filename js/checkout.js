@@ -2,41 +2,36 @@
  * Checkout logika pro SkeSkates
  * - Aktualizace ceny podle varianty
  * - Validace formuláře
- * - Uložení objednávky do Supabase (volitelné)
+ * - Uložení objednávky přes Supabase Edge Function
  * - Redirect na Stripe Payment Link
  */
 
 // ═══════════════════════════════════════════════════════════════
-// KONFIGURACE — doplň své údaje
+// KONFIGURACE — doplň svůj Supabase project URL
 // ═══════════════════════════════════════════════════════════════
-const SUPABASE_URL      = '';  // např. 'https://ai.majlajf.cz/supabase' nebo tvůj Supabase project URL
-const SUPABASE_ANON_KEY = '';  // anon/public key z Supabase
-const USE_SUPABASE      = SUPABASE_URL && SUPABASE_ANON_KEY;
+const SUPABASE_URL = 'https://tvuj-project.supabase.co'; // ← ZMĚŇ
 
-// Stripe Payment Links (získané z setup skriptu)
+// Stripe Payment Links (vygenerované z setup skriptu)
 const PAYMENT_LINKS = {
   solo: 'https://buy.stripe.com/00w14mfSjbHZ6Pi5IJ9EI04',
   duo:  'https://buy.stripe.com/7sY00i9tVbHZ6Pi6MN9EI05',
 };
 
+const USE_SUPABASE = SUPABASE_URL && !SUPABASE_URL.includes('tvuj-project');
+
 // ═══════════════════════════════════════════════════════════════
-// SUPABASE HELPERS
+// EDGE FUNCTION
 // ═══════════════════════════════════════════════════════════════
-async function supabaseInsert(table, record) {
+async function createOrder(record) {
   if (!USE_SUPABASE) return null;
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+  const res = await fetch(`${SUPABASE_URL}/functions/v1/create-order`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': SUPABASE_ANON_KEY,
-      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-      'Prefer': 'return=representation',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(record),
   });
   if (!res.ok) {
     const err = await res.text();
-    console.warn('Supabase insert failed:', err);
+    console.warn('Edge function error:', err);
     return null;
   }
   return await res.json();
@@ -50,12 +45,10 @@ const submitBtn  = document.getElementById('submitBtn');
 const formError  = document.getElementById('formError');
 const variantInputs = document.querySelectorAll('input[name="variant"]');
 
-// Cenové formátování
 function formatPrice(n) {
   return n.toLocaleString('cs-CZ') + ' Kč';
 }
 
-// Aktualizace UI podle varianty
 function updateVariantUI() {
   const selected = document.querySelector('input[name="variant"]:checked');
   if (!selected) return;
@@ -73,6 +66,7 @@ function updateVariantUI() {
 variantInputs.forEach(input => {
   input.addEventListener('change', updateVariantUI);
 });
+
 // Předvybrat variantu z URL (?variant=solo|duo)
 const urlParams = new URLSearchParams(window.location.search);
 const urlVariant = urlParams.get('variant');
@@ -85,7 +79,6 @@ if (urlVariant && (urlVariant === 'solo' || urlVariant === 'duo')) {
 }
 updateVariantUI();
 
-// Validace
 function validate(data) {
   const errors = [];
   if (!data.firstName.trim()) errors.push('Vyplň jméno.');
@@ -95,7 +88,6 @@ function validate(data) {
   return errors;
 }
 
-// Odeslání
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   formError.classList.remove('visible');
@@ -117,42 +109,40 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  // Loading state
   submitBtn.classList.add('btn-loading');
   submitBtn.disabled = true;
 
   try {
-    // 1. Uložit do Supabase (pokud je nakonfigurováno)
     const orderRecord = {
-      variant: data.variant,
       name: `${data.firstName} ${data.lastName}`,
       email: data.email,
       phone: data.phone,
       notes: data.notes || null,
-      status: 'pending',
+      variant: data.variant,
       amount: data.variant === 'solo' ? 629000 : 943500,
+      utm_source: urlParams.get('utm_source') || null,
+      utm_medium: urlParams.get('utm_medium') || null,
+      utm_campaign: urlParams.get('utm_campaign') || null,
+      referrer: document.referrer || null,
     };
 
     let orderId = null;
     if (USE_SUPABASE) {
-      const inserted = await supabaseInsert('sheskates_orders', orderRecord);
-      if (inserted && inserted[0]) orderId = inserted[0].id;
+      const result = await createOrder(orderRecord);
+      if (result && result.orderId) orderId = result.orderId;
     }
 
-    // Fallback: uložit do localStorage pro thankyou page
     localStorage.setItem('sheskates_checkout', JSON.stringify({
       ...data,
       orderId,
       timestamp: Date.now(),
     }));
 
-    // 2. Připravit Stripe Payment Link s prefilled email
     const paymentLink = PAYMENT_LINKS[data.variant];
     const url = new URL(paymentLink);
     url.searchParams.set('prefilled_email', data.email);
     if (orderId) url.searchParams.set('client_reference_id', orderId);
 
-    // 3. Redirect na Stripe
     window.location.href = url.toString();
 
   } catch (err) {
@@ -164,7 +154,7 @@ form.addEventListener('submit', async (e) => {
   }
 });
 
-// Sticky header (stejné jako main.js)
+// Sticky header
 const header = document.getElementById('header');
 if (header) {
   window.addEventListener('scroll', () => {
