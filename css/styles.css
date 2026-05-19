@@ -1115,6 +1115,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   filter: saturate(0.6) brightness(0.4);
 }
 
+/* ---- Includes card (what's included) ------------------------------ */
+.includes-card {
+  margin-bottom: 2rem;
+}
+
+.includes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+@media (min-width: 640px) {
+  .includes-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+.includes-col .breakdown-list {
+  margin-top: 0;
+}
+
 /* ---- Glass card utility ------------------------------------------- */
 .glass-card {
   background: var(--glass);
