@@ -161,3 +161,16 @@ if (header) {
     header.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 }
+
+// Reveal animations (kopie z main.js)
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const delay = parseInt(entry.target.dataset.delay || '0', 10);
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
