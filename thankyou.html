@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Děkujeme za objednávku — SkeSkates.cz</title>
+  <meta name="description" content="Tvoje rezervace na surfskate kemp byla úspěšná.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .thankyou-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 1.5rem 4rem;
+      background: var(--bg);
+      text-align: center;
+    }
+    .thankyou-card {
+      max-width: 560px;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem 2rem;
+    }
+    @media (min-width: 640px) {
+      .thankyou-card { padding: 3rem; }
+    }
+    .thankyou-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 24px rgba(34,197,94,0.25);
+    }
+    .thankyou-icon svg {
+      color: #fff;
+      width: 32px;
+      height: 32px;
+    }
+    .thankyou-card h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .thankyou-card p.lead {
+      color: var(--text-secondary);
+      font-size: 1.0625rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .order-details {
+      background: var(--bg-sand);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+    .order-details h3 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .order-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      font-size: 0.9375rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .order-row:last-child {
+      border-bottom: none;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .order-row .label { color: var(--text-secondary); }
+    .thankyou-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    @media (min-width: 480px) {
+      .thankyou-actions {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+    .thankyou-actions a {
+      text-decoration: none;
+    }
+    .thankyou-note {
+      margin-top: 1.5rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    .thankyou-note a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="assets/logo.png" alt="SkeSkates" class="logo-img"></a>
+      <nav class="desktop-nav">
+        <a href="index.html#program">Program</a>
+        <a href="index.html#cenik">Ceník</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <a href="checkout.html" class="btn-primary header-cta">Objednat místo</a>
+    </div>
+  </header>
+
+  <section class="thankyou-section">
+    <div class="thankyou-card reveal" data-delay="0">
+      <div class="thankyou-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1>Platba proběhla úspěšně!</h1>
+      <p class="lead" id="thankyouLead">
+        Děkujeme za rezervaci. Brzy ti přijde potvrzovací e-mail se všemi detaily.
+      </p>
+
+      <div class="order-details" id="orderDetails" style="display:none;">
+        <h3>Detaily objednávky</h3>
+        <div class="order-row">
+          <span class="label">Varianta</span>
+          <span id="detailVariant">—</span>
+        </div>
+        <div class="order-row">
+          <span class="label">E-mail</span>
+          <span id="detailEmail">—</span>
+        </div>
+        <div class="order-row">
+          <span class="label">Celkem</span>
+          <span id="detailTotal">—</span>
+        </div>
+      </div>
+
+      <div class="thankyou-actions">
+        <a href="index.html" class="btn-primary">Zpět na hlavní stránku</a>
+        <a href="index.html#program" class="btn-secondary">Podívat se na program</a>
+      </div>
+
+      <p class="thankyou-note">
+        Máš otázky? Napiš nám na <a href="mailto:info@sheskates.cz">info@sheskates.cz</a>
+      </p>
+    </div>
+  </section>
+
+  <script src="js/thankyou.js"></script>
+</body>
+</html>
