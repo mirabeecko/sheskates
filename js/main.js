@@ -2,34 +2,6 @@
    SKE SKATES (sheskates.cz) — Main JS
    ================================================================ */
 
-// ---- Countdown ----------------------------------------------------
-const EVENT_DATE = new Date(Date.now() + 21 * 24 * 60 * 60 * 1000);
-
-function updateCountdown() {
-  const now = Date.now();
-  const ms = Math.max(0, EVENT_DATE.getTime() - now);
-
-  const d = Math.floor(ms / 86400000);
-  const h = Math.floor((ms % 86400000) / 3600000);
-  const m = Math.floor((ms % 3600000) / 60000);
-  const s = Math.floor((ms % 60000) / 1000);
-
-  const pad = (n) => String(n).padStart(2, '0');
-
-  const elDays = document.getElementById('cd-days');
-  const elHours = document.getElementById('cd-hours');
-  const elMinutes = document.getElementById('cd-minutes');
-  const elSeconds = document.getElementById('cd-seconds');
-
-  if (elDays) elDays.textContent = pad(d);
-  if (elHours) elHours.textContent = pad(h);
-  if (elMinutes) elMinutes.textContent = pad(m);
-  if (elSeconds) elSeconds.textContent = pad(s);
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
 // ---- FAQ Accordion ------------------------------------------------
 document.querySelectorAll('.faq-question').forEach(btn => {
   btn.addEventListener('click', () => {
