@@ -105,7 +105,7 @@ async function init() {
 
   // 4. Aktualizovat objednávku v Supabase
   if (USE_SUPABASE && checkoutData?.orderId) {
-    await supabaseUpdate('orders', checkoutData.orderId, {
+    await supabaseUpdate('sheskates_orders', checkoutData.orderId, {
       status: stripeVerified ? 'paid' : 'completed',
       stripe_payment_intent_id: paymentIntentId || null,
     });

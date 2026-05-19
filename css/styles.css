@@ -180,7 +180,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4rem;
+  height: 4.5rem;
 }
 
 .logo {
@@ -193,7 +193,7 @@ ul { list-style: none; }
 .logo-accent { color: var(--accent); }
 
 .logo-img {
-  height: 2.25rem;
+  height: 3rem;
   width: auto;
   display: block;
 }
@@ -1062,7 +1062,7 @@ ul { list-style: none; }
 }
 
 .footer-logo-img {
-  height: 1.25rem;
+  height: 1.75rem;
   width: auto;
   display: block;
 }

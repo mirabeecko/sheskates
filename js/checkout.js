@@ -135,7 +135,7 @@ form.addEventListener('submit', async (e) => {
 
     let orderId = null;
     if (USE_SUPABASE) {
-      const inserted = await supabaseInsert('orders', orderRecord);
+      const inserted = await supabaseInsert('sheskates_orders', orderRecord);
       if (inserted && inserted[0]) orderId = inserted[0].id;
     }
 

@@ -1,40 +1,36 @@
--- Supabase schema pro SkeSkates objednávky
--- Spusť v Supabase SQL Editoru (New query → Run)
+-- SkeSkates — Supabase schema pro objednávky
+-- Spusť celé najednou v Supabase SQL Editoru
 
--- Vytvořit tabulku objednávek
-CREATE TABLE IF NOT EXISTS public.orders (
+-- 1. Vytvořit tabulku (pokud neexistuje)
+CREATE TABLE IF NOT EXISTS public.sheskates_orders (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW(),
 
-  -- Základní údaje
   name TEXT NOT NULL,
   email TEXT NOT NULL,
   phone TEXT NOT NULL,
   notes TEXT,
 
-  -- Objednávka
   variant TEXT NOT NULL CHECK (variant IN ('solo', 'duo')),
   status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'paid', 'cancelled', 'refunded')),
-  amount INTEGER NOT NULL, -- v haléřích (CZK * 100)
+  amount INTEGER NOT NULL,
 
-  -- Stripe reference
   stripe_payment_intent_id TEXT,
   stripe_customer_id TEXT,
 
-  -- Konverze / tracking
   utm_source TEXT,
   utm_medium TEXT,
   utm_campaign TEXT,
   referrer TEXT
 );
 
--- Indexy pro rychlé vyhledávání
-CREATE INDEX IF NOT EXISTS idx_orders_email ON public.orders(email);
-CREATE INDEX IF NOT EXISTS idx_orders_status ON public.orders(status);
-CREATE INDEX IF NOT EXISTS idx_orders_created_at ON public.orders(created_at DESC);
+-- 2. Indexy
+CREATE INDEX IF NOT EXISTS idx_sheskates_orders_email ON public.sheskates_orders(email);
+CREATE INDEX IF NOT EXISTS idx_sheskates_orders_status ON public.sheskates_orders(status);
+CREATE INDEX IF NOT EXISTS idx_sheskates_orders_created_at ON public.sheskates_orders(created_at DESC);
 
--- Automatická aktualizace updated_at
+-- 3. Funkce pro auto-update updated_at
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -43,31 +39,37 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- 4. Trigger
+DROP TRIGGER IF EXISTS update_sheskates_orders_updated_at ON public.sheskates_orders;
 CREATE TRIGGER update_orders_updated_at
-  BEFORE UPDATE ON public.orders
+  BEFORE UPDATE ON public.sheskates_orders
   FOR EACH ROW
   EXECUTE FUNCTION update_updated_at_column();
 
--- RLS politiky (povolit INSERT/UPDATE z frontendu bez autentizace pro checkout)
-ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
+-- 5. RLS
+ALTER TABLE public.sheskates_orders ENABLE ROW LEVEL SECURITY;
 
--- Povolit INSERT z anon klíče (pro ukládání objednávek z checkout stránky)
-CREATE POLICY "Allow anonymous insert" ON public.orders
+-- 6. Politiky (nejprve dropnout staré, pokud existují)
+DROP POLICY IF EXISTS "Allow anonymous insert" ON public.sheskates_orders;
+DROP POLICY IF EXISTS "Allow select by id" ON public.sheskates_orders;
+DROP POLICY IF EXISTS "Allow update by id" ON public.sheskates_orders;
+
+CREATE POLICY "Allow anonymous insert" ON public.sheskates_orders
   FOR INSERT TO anon WITH CHECK (true);
 
--- Povolit SELECT/UPDATE pro thankyou page
-CREATE POLICY "Allow select by id" ON public.orders
+CREATE POLICY "Allow select by id" ON public.sheskates_orders
   FOR SELECT TO anon USING (true);
 
-CREATE POLICY "Allow update by id" ON public.orders
+CREATE POLICY "Allow update by id" ON public.sheskates_orders
   FOR UPDATE TO anon USING (true) WITH CHECK (true);
 
--- Dashboard view
-CREATE OR REPLACE VIEW public.orders_summary AS
+-- 7. Dashboard view
+DROP VIEW IF EXISTS public.sheskates_orders_summary;
+CREATE VIEW public.sheskates_orders_summary AS
 SELECT
   variant,
   status,
   COUNT(*) as count,
   SUM(amount) as total_amount
-FROM public.orders
+FROM public.sheskates_orders
 GROUP BY variant, status;
