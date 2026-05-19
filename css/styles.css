@@ -1147,7 +1147,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .sticky-mobile-cta {
   display: none;
   position: fixed;
-  bottom: 0;
+  bottom: 44px;
   left: 0;
   right: 0;
   z-index: 999;
@@ -1159,5 +1159,5 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 @media (max-width: 767px) {
   .sticky-mobile-cta { display: block; }
-  body { padding-bottom: 4rem; }
+  body { padding-bottom: 7.5rem; }
 }
