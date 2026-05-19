@@ -1247,17 +1247,6 @@ ul { list-style: none; }
 .cta-section {
   position: relative;
   overflow: hidden;
-  background-image: url('../assets/riding_detail.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-.cta-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 26, 26, 0.82);
-  pointer-events: none;
 }
 
 .cta-section::before {
@@ -1267,14 +1256,13 @@ ul { list-style: none; }
   left: -20%;
   width: 140%;
   height: 200%;
-  background: radial-gradient(ellipse at center, rgba(255,77,46,0.12) 0%, transparent 60%);
+  background: radial-gradient(ellipse at center, rgba(255,77,46,0.08) 0%, transparent 60%);
   pointer-events: none;
-  z-index: 1;
 }
 
 .cta-section .container {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .cta-section .section-title { margin-bottom: 1.25rem; }
