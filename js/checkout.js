@@ -61,6 +61,11 @@ function updateVariantUI() {
   document.getElementById('summaryPrice').textContent   = formatPrice(isDuo ? 12580 : price);
   document.getElementById('summaryTotal').textContent   = formatPrice(price);
   document.getElementById('discountLine').style.display = isDuo ? 'flex' : 'none';
+
+  const friendFields = document.getElementById('friendFields');
+  if (friendFields) {
+    friendFields.style.display = isDuo ? 'block' : 'none';
+  }
 }
 
 variantInputs.forEach(input => {
@@ -93,13 +98,15 @@ form.addEventListener('submit', async (e) => {
   formError.classList.remove('visible');
 
   const selected = document.querySelector('input[name="variant"]:checked');
+  const friendName = document.getElementById('friendName')?.value.trim();
   const data = {
-    variant:   selected.value,
-    firstName: document.getElementById('firstName').value.trim(),
-    lastName:  document.getElementById('lastName').value.trim(),
-    email:     document.getElementById('email').value.trim().toLowerCase(),
-    phone:     document.getElementById('phone').value.trim(),
-    notes:     document.getElementById('notes').value.trim(),
+    variant:    selected.value,
+    firstName:  document.getElementById('firstName').value.trim(),
+    lastName:   document.getElementById('lastName').value.trim(),
+    email:      document.getElementById('email').value.trim().toLowerCase(),
+    phone:      document.getElementById('phone').value.trim(),
+    notes:      document.getElementById('notes').value.trim(),
+    friendName: friendName || null,
   };
 
   const errors = validate(data);
@@ -113,11 +120,15 @@ form.addEventListener('submit', async (e) => {
   submitBtn.disabled = true;
 
   try {
+    const notesParts = [];
+    if (data.notes) notesParts.push(data.notes);
+    if (data.friendName) notesParts.push(`Kámoška: ${data.friendName}`);
+
     const orderRecord = {
       name: `${data.firstName} ${data.lastName}`,
       email: data.email,
       phone: data.phone,
-      notes: data.notes || null,
+      notes: notesParts.join(' | ') || null,
       variant: data.variant,
       amount: data.variant === 'solo' ? 629000 : 943500,
       utm_source: urlParams.get('utm_source') || null,

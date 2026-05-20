@@ -415,6 +415,14 @@
               <input type="tel" id="phone" name="phone" placeholder="+420 777 888 999" required>
             </div>
 
+            <!-- Kámoška — zobrazí se jen při variantě "duo" -->
+            <div class="form-group friend-fields" id="friendFields" style="display:none;">
+              <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.25rem;margin-top:0.5rem;">
+                <label for="friendName" style="color:var(--accent);margin-bottom:0.75rem;display:block;">Kdo jede s tebou? <span style="font-weight:400;color:var(--text-light-muted)">(nepovinné)</span></label>
+                <input type="text" id="friendName" name="friendName" placeholder="Jméno kámošky — doplníš i později">
+              </div>
+            </div>
+
             <div class="form-group">
               <label for="notes">Poznámka <span style="font-weight:400;color:var(--text-muted)">(nepovinné)</span></label>
               <textarea id="notes" name="notes" rows="3" placeholder="Alergie, speciální požadavky, termín..."></textarea>
