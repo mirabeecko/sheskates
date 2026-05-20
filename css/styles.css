@@ -6,8 +6,8 @@
 :root {
   --bg: #F7F5F2;
   --bg-sand: #EFEBE5;
-  --bg-dark: #0d0d0d;
-  --bg-dark-secondary: #1a1a1a;
+  --bg-dark: #1a0a1a;
+  --bg-dark-secondary: #2d142d;
 
   --text: #111111;
   --text-secondary: #555555;
@@ -18,8 +18,8 @@
   --accent: #FF4D2E;
   --accent-hover: #E63A1C;
   --accent-glow: rgba(255, 77, 46, 0.35);
-  --accent-purple: #7C3AED;
-  --accent-pink: #EC4899;
+  --accent-purple: #9333EA;
+  --accent-pink: #F472B6;
 
   --card: rgba(255,255,255,0.08);
   --card-border: rgba(255,255,255,0.1);
@@ -54,7 +54,8 @@ html {
 }
 
 body {
-  background: var(--bg-dark);
+  background: linear-gradient(180deg, #1a0a1a 0%, #2d142d 50%, #1a0a1a 100%);
+  background-attachment: fixed;
   color: var(--text-light);
   font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -492,7 +493,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ---- Skills section ----------------------------------------------- */
 .skills-section {
-  background: linear-gradient(180deg, var(--bg-dark) 0%, #1a0a2e 50%, var(--bg-dark) 100%);
+  background: linear-gradient(180deg, #1a0a1a 0%, #3d1f3d 50%, #1a0a1a 100%);
   position: relative;
 }
 
@@ -503,7 +504,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   left: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(255,77,46,0.1), transparent 70%);
+  background: radial-gradient(circle, rgba(244,114,182,0.15), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -595,7 +596,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ---- For Who section ---------------------------------------------- */
 .forwho-section {
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a0f1a 50%, #0d0d0d 100%);
+  background: linear-gradient(135deg, #1a0a1a 0%, #2d1a2d 50%, #1a0a1a 100%);
   position: relative;
 }
 
@@ -606,7 +607,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   right: 0;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(236,72,153,0.08), transparent 70%);
+  background: radial-gradient(circle, rgba(244,114,182,0.12), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -684,7 +685,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ---- Pricing section ---------------------------------------------- */
 .pricing-section {
-  background: linear-gradient(180deg, var(--bg-dark) 0%, #0f0a1a 50%, var(--bg-dark) 100%);
+  background: linear-gradient(180deg, #1a0a1a 0%, #3d1f3d 50%, #1a0a1a 100%);
   position: relative;
 }
 
@@ -696,7 +697,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(124,58,237,0.08), transparent 70%);
+  background: radial-gradient(circle, rgba(244,114,182,0.1), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -853,7 +854,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ---- Testimonials section ----------------------------------------- */
 .testimonials-section {
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a0a1a 100%);
+  background: linear-gradient(135deg, #1a0a1a 0%, #2d1a2d 100%);
   position: relative;
 }
 
@@ -865,7 +866,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transform: translateX(-50%);
   width: 800px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(255,77,46,0.06), transparent 70%);
+  background: radial-gradient(ellipse, rgba(244,114,182,0.08), transparent 70%);
   pointer-events: none;
 }
 
@@ -957,7 +958,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ---- CTA section -------------------------------------------------- */
 .cta-section {
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a0a2e 50%, #0d0d0d 100%);
+  background: linear-gradient(135deg, #1a0a1a 0%, #3d1f3d 50%, #1a0a1a 100%);
   position: relative;
   text-align: center;
 }
@@ -970,7 +971,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transform: translate(-50%, -50%);
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(255,77,46,0.06), transparent 70%);
+  background: radial-gradient(circle, rgba(244,114,182,0.1), transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -996,7 +997,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ---- FAQ section -------------------------------------------------- */
 .faq-section {
-  background: linear-gradient(180deg, var(--bg-dark) 0%, #0f0a1a 100%);
+  background: linear-gradient(180deg, #1a0a1a 0%, #2d1a2d 100%);
 }
 
 .faq-item {
@@ -1064,7 +1065,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ---- Footer ------------------------------------------------------- */
 .site-footer {
-  background: var(--bg-dark);
+  background: linear-gradient(180deg, #1a0a1a 0%, #2d142d 100%);
   padding: 2rem 0;
   border-top: 1px solid rgba(255,255,255,0.05);
 }
