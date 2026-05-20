@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Setup Stripe produktů a Payment Links pro SkeSkates
+ * Setup Stripe produktů a Payment Links pro SheSkates
  * Používá AI Gateway: https://ai.majlajf.cz/stripe/...
  *
  * Spuštění:
@@ -31,7 +31,7 @@ async function stripePost(endpoint, body) {
 }
 
 async function main() {
-  console.log("🛹  SkeSkates Stripe Setup\n");
+  console.log("🛹  SheSkates Stripe Setup\n");
 
   // 1 osoba – 6 290 Kč
   console.log("Creating product: 1 osoba …");

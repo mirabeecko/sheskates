@@ -1,5 +1,5 @@
 /**
- * Checkout logika pro SkeSkates
+ * Checkout logika pro SheSkates
  * - Aktualizace ceny podle varianty
  * - Validace formuláře
  * - Uložení objednávky přes Supabase Edge Function

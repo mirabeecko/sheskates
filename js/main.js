@@ -1,5 +1,5 @@
 /**
- * SkeSkates — Main JS
+ * SheSkates — Main JS
  * Parallax, reveal animations, FAQ, header
  */
 

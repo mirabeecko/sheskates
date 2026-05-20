@@ -1,4 +1,4 @@
--- SkeSkates — Supabase schema pro objednávky
+-- SheSkates — Supabase schema pro objednávky
 -- Spusť celé najednou v Supabase SQL Editoru
 
 -- 1. Vytvořit tabulku (pokud neexistuje)

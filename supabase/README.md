@@ -1,4 +1,4 @@
-# SkeSkates — Supabase Setup
+# SheSkates — Supabase Setup
 
 ## 1. Schema
 Spusť `schema.sql` v Supabase SQL Editoru (New query → Run).
