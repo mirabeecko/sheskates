@@ -343,12 +343,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-size: clamp(2rem, 7vw, 5rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1.05;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  white-space: nowrap;
 }
 
 .hero-title .accent {
@@ -356,6 +357,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.hero-challenge {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: var(--accent-pink);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
 }
 
 .hero-lead {
