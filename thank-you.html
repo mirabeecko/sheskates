@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PBHK4JHP');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Děkujeme za objednávku — SheSkates.cz</title>
+  <meta name="description" content="Tvoje rezervace na surfskate kemp byla úspěšně přijata. Brzy ti napíšeme s dalšími informacemi.">
+  <link rel="canonical" href="https://sheskates.cz/thank-you.html">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sheskates.cz/thank-you.html">
+  <meta property="og:title" content="Děkujeme za objednávku — SheSkates.cz">
+  <meta property="og:description" content="Tvoje rezervace na surfskate kemp byla úspěšně přijata.">
+  <meta property="og:image" content="https://sheskates.cz/assets/hero.jpg">
+  <meta property="og:locale" content="cs_CZ">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Děkujeme za objednávku — SheSkates.cz">
+  <meta name="twitter:description" content="Tvoje rezervace na surfskate kemp byla úspěšně přijata.">
+  <meta name="twitter:image" content="https://sheskates.cz/assets/hero.jpg">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ConfirmAction",
+    "name": "Děkujeme za objednávku",
+    "description": "Potvrzení rezervace místa na surfskate kempu.",
+    "url": "https://sheskates.cz/thank-you.html"
+  }
+  </script>
+
+  <script>
+    // Načtení dat objednávky z localStorage (uloženo v checkout.js před redirectem na Stripe)
+    (function() {
+      const raw = localStorage.getItem('sheskates_checkout');
+      const order = raw ? JSON.parse(raw) : null;
+
+      const PRICES = { solo: 6290, duo: 9435 };
+      const LABELS = { solo: 'Standardní vstupenka — 1 osoba', duo: 'Akce pro dvě — Já a kámoška' };
+
+      window.__order = order ? {
+        variant: order.variant,
+        label: LABELS[order.variant] || order.variant,
+        price: PRICES[order.variant] || 0,
+        firstName: order.firstName || '',
+        lastName: order.lastName || '',
+        orderId: order.orderId || ('WEB_' + Date.now()),
+      } : null;
+
+      // GTM dataLayer — purchase event se skutečnými daty
+      if (window.__order) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'purchase',
+          ecommerce: {
+            currency: 'CZK',
+            value: window.__order.price,
+            transaction_id: window.__order.orderId,
+            items: [{
+              item_name: window.__order.label,
+              item_id: window.__order.variant,
+              price: window.__order.price,
+              quantity: 1
+            }]
+          }
+        });
+        // Vyčistit localStorage po zobrazení
+        localStorage.removeItem('sheskates_checkout');
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .thankyou-section {
+      min-height: 100vh;
+      padding: 8rem 0 4rem;
+      display: flex;
+      align-items: center;
+    }
+    .thankyou-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .thankyou-icon {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.25);
+    }
+    .thankyou-icon svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: #fff;
+    }
+    .thankyou-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .thankyou-lead {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+    .thankyou-next {
+      background: linear-gradient(145deg, #FFFFFF, #FFF8F6);
+      border: 1px solid rgba(255, 77, 46, 0.1);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      text-align: left;
+      margin-bottom: 2.5rem;
+    }
+    .thankyou-next h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .thankyou-next ol {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+      padding-left: 1.25rem;
+    }
+    .thankyou-next li {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .thankyou-next li strong {
+      color: var(--text);
+    }
+    .thankyou-social {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .thankyou-social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .share-ig {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #fff;
+    }
+    .share-ig:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(220, 39, 67, 0.3);
+    }
+    .share-fb {
+      background: #1877F2;
+      color: #fff;
+    }
+    .share-fb:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(24, 119, 242, 0.3);
+    }
+    .thankyou-back {
+      margin-top: 2.5rem;
+    }
+    .order-detail {
+      background: var(--bg-sand);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.9375rem;
+    }
+    .order-detail p {
+      color: var(--text-secondary);
+    }
+    .order-detail strong {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBHK4JHP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <!-- HEADER -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="assets/logo.png" alt="SheSkates" class="logo-img"></a>
+      <nav class="desktop-nav">
+        <a href="index.html#program">Program</a>
+        <a href="index.html#cenik">Ceník</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="thankyou-section">
+    <div class="container">
+      <div class="thankyou-wrap">
+        <div class="thankyou-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h1 class="thankyou-title">Objednávka přijata!<br><span class="text-accent">Už se na tebe těšíme.</span></h1>
+        <p class="thankyou-lead" id="tyLead">Brzy ti pošleme e-mail s potvrzením a všemi detaily. Mezitím se podívej, co tě čeká.</p>
+
+        <div class="order-detail" id="tyDetail" style="display:none;">
+          <p style="margin-bottom:0.5rem;"><strong id="tyName"></strong></p>
+          <p><span id="tyVariant"></span> · <strong id="tyPrice" style="color:var(--accent);"></strong></p>
+        </div>
+
+        <div class="thankyou-next">
+          <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg> Co se stane dál?</h3>
+          <ol>
+            <li><strong>Potvrzovací e-mail</strong> — do 5 minut ti přijde shrnutí objednávky.</li>
+            <li><strong>Platební instrukce</strong> — pokud jsi zvolila bankovní převod, pošleme číslo účtu.</li>
+            <li><strong>Informační balíček</strong> — 7 dní před kempem dostaneš seznam co s sebou a přesný program.</li>
+            <li><strong>Parta je kompletní</strong> — přijed a užij si to!</li>
+          </ol>
+        </div>
+
+        <p id="tyReferral" style="font-weight:600;margin-bottom:0.5rem;">Pořiď si parťačku — jede za polovinu</p>
+        <p id="tyReferralText" style="color:var(--text-secondary);font-size:0.9375rem;margin-bottom:1.5rem;">Když pozveš kámošku, platíte jen 9 435 Kč místo 12 580 Kč.</p>
+
+        <div class="thankyou-social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="share-ig">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            Sdílet na Instagram
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://sheskates.cz/" target="_blank" rel="noopener" class="share-fb">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Sdílet na Facebook
+          </a>
+        </div>
+
+        <div class="thankyou-back">
+          <a href="index.html" class="btn-secondary">← Zpět na hlavní stránku</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      const o = window.__order;
+      if (!o) return;
+
+      const detail = document.getElementById('tyDetail');
+      const nameEl = document.getElementById('tyName');
+      const variantEl = document.getElementById('tyVariant');
+      const priceEl = document.getElementById('tyPrice');
+      const leadEl = document.getElementById('tyLead');
+
+      if (detail) detail.style.display = 'block';
+      if (nameEl) nameEl.textContent = o.firstName + ' ' + o.lastName;
+      if (variantEl) variantEl.textContent = o.label;
+      if (priceEl) priceEl.textContent = o.price.toLocaleString('cs-CZ') + ' Kč';
+      if (leadEl) leadEl.textContent = 'Platba byla úspěšně zpracována. Brzy ti pošleme e-mail s potvrzením a všemi detaily.';
+
+      // Skrýt referral CTA pokud už objednávka pro dvě
+      if (o.variant === 'duo') {
+        const ref = document.getElementById('tyReferral');
+        const refText = document.getElementById('tyReferralText');
+        if (ref) ref.style.display = 'none';
+        if (refText) refText.style.display = 'none';
+      }
+    })();
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-logo"><img src="assets/logo.png" alt="SheSkates" class="footer-logo-img"></p>
+      <p>© 2026 sheskates.cz · Vyrobeno s 🔥 pro ženy.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

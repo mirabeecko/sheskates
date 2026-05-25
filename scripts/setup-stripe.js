@@ -9,7 +9,7 @@
 
 const GATEWAY_BASE = "https://ai.majlajf.cz/stripe";
 const BEARER_TOKEN = process.env.GATEWAY_TOKEN || "350b0dd217e878bc129542b1dfc6c40fe7c07b5691137483c2bc27a1bbf81edf";
-const THANKYOU_URL = process.env.THANKYOU_URL || "https://sheskates.cz/thankyou.html";
+const THANKYOU_URL = process.env.THANKYOU_URL || "https://sheskates.cz/thank-you.html";
 
 const headers = {
   "Authorization": `Bearer ${BEARER_TOKEN}`,

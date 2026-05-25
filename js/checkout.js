@@ -12,9 +12,11 @@
 const SUPABASE_URL = 'https://tvuj-project.supabase.co'; // ← ZMĚŇ
 
 // Stripe Payment Links (vygenerované z setup skriptu)
+// STRIPE_PRICE_SOLO_ID=price_1Tb0C4CBgIxNRpERnEZ0IIYP
+// STRIPE_PRICE_DUO_ID=price_1Tb0C5CBgIxNRpERb5VN7F8B
 const PAYMENT_LINKS = {
-  solo: 'https://buy.stripe.com/00w14mfSjbHZ6Pi5IJ9EI04',
-  duo:  'https://buy.stripe.com/7sY00i9tVbHZ6Pi6MN9EI05',
+  solo: 'https://buy.stripe.com/bJe3cudKb13lehKb339EI06',
+  duo:  'https://buy.stripe.com/dRm00i5dF6nF5Leeff9EI07',
 };
 
 const USE_SUPABASE = SUPABASE_URL && !SUPABASE_URL.includes('tvuj-project');
@@ -149,6 +151,26 @@ form.addEventListener('submit', async (e) => {
       timestamp: Date.now(),
     }));
 
+    // GTM dataLayer — begin_checkout event
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'begin_checkout',
+      ecommerce: {
+        currency: 'CZK',
+        value: data.variant === 'solo' ? 6290 : 9435,
+        items: [{
+          item_name: data.variant === 'solo' ? 'Standardní vstupenka' : 'Akce pro dvě',
+          item_id: data.variant,
+          price: data.variant === 'solo' ? 6290 : 9435,
+          quantity: 1
+        }]
+      }
+    });
+
+    // ⚠️ DŮLEŽITÉ: Stripe Payment Link MUSÍ mít nastavený redirect
+    // na https://sheskates.cz/thank-you.html
+    // Pokud jsi Payment Link vytvářel(a) přes scripts/setup-stripe.js,
+    // spusť ho znovu: node scripts/setup-stripe.js
     const paymentLink = PAYMENT_LINKS[data.variant];
     const url = new URL(paymentLink);
     url.searchParams.set('prefilled_email', data.email);

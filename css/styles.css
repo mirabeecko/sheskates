@@ -719,10 +719,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   z-index: 1;
 }
 
+.pricing-wrap-stacked {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
 @media (min-width: 768px) {
-  .pricing-wrap {
-    grid-template-columns: 2fr 1fr;
-    align-items: start;
+  .pricing-wrap-stacked {
+    max-width: 560px;
   }
 }
 
@@ -815,6 +819,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--accent);
 }
 
+.pricing-arrival {
+  font-size: 0.875rem;
+  color: var(--text-light-muted);
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--accent);
+  line-height: 1.5;
+}
+
 .breakdown-list {
   display: flex;
   flex-direction: column;
@@ -859,6 +874,55 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .pricing-solo .pricing-amount {
   font-size: 2rem;
+}
+
+/* ---- Reveal duo price --------------------------------------------- */
+.pricing-duo-reveal {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  border-color: transparent;
+  transform: translateY(-10px);
+  transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, rgba(255,77,46,0.12), rgba(147,51,234,0.12));
+  border: 2px solid rgba(255,77,46,0.35);
+}
+
+.pricing-duo-reveal.visible {
+  max-height: 600px;
+  opacity: 1;
+  padding: 2rem;
+  margin-top: 1rem;
+  transform: translateY(0);
+  border-color: rgba(255,77,46,0.45);
+}
+
+.btn-reveal-duo {
+  width: 100%;
+  margin-top: 1.25rem;
+  padding: 0.875rem 1.25rem;
+  background: linear-gradient(135deg, rgba(255,77,46,0.12), rgba(147,51,234,0.12));
+  border: 2px dashed rgba(255,77,46,0.45);
+  border-radius: var(--radius-xl);
+  color: var(--accent);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-reveal-duo:hover {
+  background: linear-gradient(135deg, rgba(255,77,46,0.22), rgba(147,51,234,0.22));
+  border-style: solid;
+  transform: translateY(-1px);
 }
 
 /* ---- Testimonials section ----------------------------------------- */
@@ -1220,4 +1284,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 767px) {
   .sticky-mobile-cta { display: flex; }
   body { padding-bottom: 7.5rem; }
+  .pricing-arrival {
+    font-size: 0.8125rem;
+    padding: 0.625rem;
+  }
+  .pricing-badge {
+    font-size: 0.625rem;
+    padding: 0.3125rem 0.625rem;
+  }
+  .pricing-label {
+    font-size: 0.8125rem;
+  }
 }

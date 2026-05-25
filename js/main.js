@@ -49,3 +49,22 @@ document.querySelectorAll('.faq-question').forEach(btn => {
 
 // Footer year
 document.getElementById('year').textContent = `© ${new Date().getFullYear()} sheskates.cz · Vyrobeno s 🔥 pro ženy.`;
+
+// Toggle duo price reveal
+function toggleDuoPrice() {
+  const card = document.getElementById('duoPriceCard');
+  const btn = document.getElementById('btnRevealDuo');
+  if (!card || !btn) return;
+  const isVisible = card.classList.contains('visible');
+  if (isVisible) {
+    card.classList.remove('visible');
+    btn.innerHTML = '<span>+ Mám kámošku — ukaž akci za půlku</span>';
+  } else {
+    card.classList.add('visible');
+    btn.innerHTML = '<span>− Skrýt akci pro dvě</span>';
+    // Smooth scroll to revealed card
+    setTimeout(() => {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+}
