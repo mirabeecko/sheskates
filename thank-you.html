@@ -66,9 +66,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         orderId: order.orderId || ('WEB_' + Date.now()),
       } : null;
 
-      // GTM dataLayer — purchase event se skutečnými daty
-      if (window.__order) {
-        window.dataLayer = window.dataLayer || [];
+        // GTM dataLayer — purchase event se skutečnými daty
         window.dataLayer.push({
           event: 'purchase',
           ecommerce: {
@@ -83,9 +81,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }]
           }
         });
+
+        // Google Ads Conversion — odeslání konverze
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18191922314/zQXVCLKSkLQcEIrpyuJD',
+            'value': window.__order.price,
+            'currency': 'CZK',
+            'transaction_id': window.__order.orderId
+          });
+        }
+
         // Vyčistit localStorage po zobrazení
         localStorage.removeItem('sheskates_checkout');
-      }
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
