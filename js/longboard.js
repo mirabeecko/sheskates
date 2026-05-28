@@ -1,5 +1,5 @@
 /**
- * SheSkates — Longboard kemp pro ženy
+ * SheSkates — Longboard víkend pro ženy
  * Countdown, spots, exit intent, Meta Pixel, FAQ, reveal
  */
 
@@ -64,7 +64,7 @@ function bindPixelCta() {
     btn.addEventListener('click', () => {
       if (typeof fbq !== 'undefined') {
         fbq('track', 'InitiateCheckout', {
-          content_name: 'Longboard kemp červen 2026',
+          content_name: 'Longboard víkend červen 2026',
           currency: 'CZK',
           value: 6290
         });
