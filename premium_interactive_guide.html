@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<!-- Google Consent Mode -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'analytics_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'wait_for_update': 500
+});
+</script>
+<!-- End Google Consent Mode -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PBHK4JHP');</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheSkates.cz - 5 Cviků na stabilitu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght=0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            beige: '#FAF7F2',
+                            terracotta: '#E57C67',
+                            charcoal: '#2B2926',
+                            sand: '#F3ECE3',
+                            accent: '#F9D3C5',
+                            sage: '#8FA190'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAF7F2;
+            color: #2B2926;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F3ECE3;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E57C67;
+            border-radius: 3px;
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                color: #2B2926 !important;
+                font-size: 11pt;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-page-break {
+                page-break-before: always;
+            }
+            .print-card {
+                border: 1px solid #FAF7F2 !important;
+                box-shadow: none !important;
+                background: white !important;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-accent overflow-x-hidden">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBHK4JHP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation / Header -->
+    <header class="bg-brand-charcoal text-white py-4 px-6 md:px-12 flex justify-between items-center shadow-md no-print sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="bg-brand-terracotta text-white p-2 rounded-full font-bold text-sm tracking-widest flex items-center justify-center w-10 h-10">
+                SS
+            </div>
+            <div>
+                <span class="font-bold tracking-wider text-lg uppercase block">SheSkates<span class="text-brand-terracotta">.cz</span></span>
+                <span class="text-xs text-brand-accent tracking-widest uppercase block -mt-1">Premium Camp Guide</span>
+            </div>
+        </div>
+        <button onclick="window.print()" class="bg-brand-terracotta hover:bg-opacity-90 text-white font-semibold py-2 px-4 rounded-xl transition duration-300 flex items-center space-x-2 text-sm shadow-md">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Vytisknout / Uložit PDF</span>
+        </button>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl w-full mx-auto p-4 md:p-8 flex-grow">
+        
+        <!-- Hero Section -->
+        <section class="mb-10 text-center md:text-left md:flex items-center justify-between gap-8 no-print bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-brand-sand">
+            <div class="md:w-2/3">
+                <span class="bg-brand-terracotta bg-opacity-10 text-brand-terracotta font-bold text-xs uppercase tracking-widest px-3 py-1.5 rounded-full inline-block mb-3">Příprava na kemp</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-brand-charcoal tracking-tight leading-tight mb-4">
+                    5 Cviků na stabilitu: <span class="text-brand-terracotta">Naskoč na vlnu s jistotou</span>
+                </h1>
+                <p class="text-gray-600 text-base md:text-lg mb-6 leading-relaxed">
+                    Stabilita na longboardu není o hrubé síle, ale o vnímání vlastního těla, síle středu (<span class="italic font-semibold">core</span>) a reaktivitě kotníků. Tento průvodce ti pomůže chytit balanc, získat jistotu v obloucích a předejít zraněním ještě než se potkáme na kempu!
+                </p>
+                <!-- Workout Progress Bar -->
+                <div class="bg-brand-sand rounded-2xl p-4 inline-block w-full max-w-md text-left">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-semibold text-brand-charcoal">Tvá příprava na kemp</span>
+                        <span id="progress-percent" class="text-sm font-bold text-brand-terracotta">0% Dokončeno</span>
+                    </div>
+                    <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="bg-brand-terracotta h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                    <p id="progress-badge" class="text-xs text-gray-500 mt-2 italic">Začni odškrtávat cviky a odemkni "Camp-Ready" status!</p>
+                </div>
+            </div>
+            <div class="hidden md:block md:w-1/3">
+                <div class="bg-brand-sand p-6 rounded-2xl border-2 border-dashed border-brand-terracotta border-opacity-40 text-center">
+                    <span class="text-4xl block mb-2">🛹</span>
+                    <h3 class="font-bold text-lg text-brand-charcoal mb-1">SheSkates Komunita</h3>
+                    <p class="text-xs text-gray-500 mb-4">Trénuj 3× týdně a sdílej své pokroky na Instagramu s hashtagem</p>
+                    <span class="text-sm font-bold text-brand-terracotta bg-white px-3 py-1.5 rounded-lg shadow-sm border border-brand-sand">#SheSkatesCamps</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Balance Simulator Block (Canvas) -->
+        <section class="mb-10 no-print bg-brand-charcoal text-white p-6 md:p-8 rounded-3xl shadow-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-terracotta rounded-full blur-3xl opacity-10 -mr-10 -mt-10"></div>
+            
+            <div class="relative z-10 md:flex md:items-center md:justify-between gap-8">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <span class="bg-brand-accent bg-opacity-20 text-brand-accent font-semibold text-xs uppercase tracking-widest px-3 py-1.5 rounded-full inline-block mb-3">Interaktivní trenažér</span>
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Virtuální rovnováha</h2>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+                        Zkus si virtuálně udržet těžiště na desce. Použij šipky na klávesnici, naklánění telefonu nebo klikej na tlačítka po stranách, abys udržel kuličku uprostřed jedoucí desky.
+                    </p>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="bg-brand-charcoal bg-opacity-50 p-3 rounded-xl border border-gray-700">
+                            <span class="text-xs text-gray-400 block uppercase font-bold">Skóre (Čas v rovnováze)</span>
+                            <span id="game-score" class="text-2xl font-extrabold text-brand-terracotta">0.0s</span>
+                        </div>
+                        <div class="bg-brand-charcoal bg-opacity-50 p-3 rounded-xl border border-gray-700">
+                            <span class="text-xs text-gray-400 block uppercase font-bold">Osobní rekord</span>
+                            <span id="game-highscore" class="text-2xl font-extrabold text-brand-sage">0.0s</span>
+                        </div>
+                    </div>
+                    <div id="game-feedback" class="text-sm text-brand-accent font-semibold italic">Připravena? Klikni na "Start hry" a vybalancuj to!</div>
+                </div>
+                
+                <!-- Game Canvas & Controls -->
+                <div class="md:w-1/2 flex flex-col items-center">
+                    <div class="relative bg-white bg-opacity-5 p-4 rounded-2xl border border-gray-700 w-full max-w-md">
+                        <canvas id="balanceCanvas" class="w-full bg-brand-charcoal rounded-xl cursor-pointer" height="200"></canvas>
+                        
+                        <!-- Screen Controls (For Touch/Click Devices) -->
+                        <div class="flex justify-between mt-4 gap-4">
+                            <button id="btn-left" class="flex-1 bg-brand-sand bg-opacity-10 hover:bg-opacity-20 active:bg-brand-terracotta text-white py-3 rounded-xl transition font-bold select-none touch-none text-center">
+                                <i class="fa-solid fa-arrow-left mr-1"></i> Vlevo
+                            </button>
+                            <button id="game-start-btn" class="flex-1 bg-brand-terracotta hover:bg-opacity-90 text-white font-bold py-3 rounded-xl transition shadow-md">
+                                Start Hry
+                            </button>
+                            <button id="btn-right" class="flex-1 bg-brand-sand bg-opacity-10 hover:bg-opacity-20 active:bg-brand-terracotta text-white py-3 rounded-xl transition font-bold select-none touch-none text-center">
+                                Vpravo <i class="fa-solid fa-arrow-right mr-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Exercises Section (Digital view) -->
+        <section class="mb-10 no-print">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-brand-charcoal">Tréninkový plán</h2>
+                <div class="flex space-x-2">
+                    <button onclick="prevExercise()" class="bg-white hover:bg-brand-sand text-brand-charcoal p-2.5 rounded-lg border border-brand-sand shadow-sm transition">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button onclick="nextExercise()" class="bg-white hover:bg-brand-sand text-brand-charcoal p-2.5 rounded-lg border border-brand-sand shadow-sm transition">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Exercises Slider Container -->
+            <div class="bg-white rounded-3xl shadow-sm border border-brand-sand p-6 md:p-8">
+                <!-- Navigation Tabs -->
+                <div class="flex overflow-x-auto pb-4 mb-6 border-b border-brand-sand gap-2 custom-scrollbar">
+                    <button onclick="selectExercise(0)" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition duration-300 bg-brand-terracotta text-white">1. Surfový postoj</button>
+                    <button onclick="selectExercise(1)" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition duration-300 text-gray-500 hover:bg-brand-sand">2. Rotace trupu</button>
+                    <button onclick="selectExercise(2)" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition duration-300 text-gray-500 hover:bg-brand-sand">3. Holubička</button>
+                    <button onclick="selectExercise(3)" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition duration-300 text-gray-500 hover:bg-brand-sand">4. Boční výpady</button>
+                    <button onclick="selectExercise(4)" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition duration-300 text-gray-500 hover:bg-brand-sand">5. Výpony</button>
+                </div>
+
+                <!-- Exercise Content Panel -->
+                <div id="exercise-panel" class="md:flex md:items-start gap-8 transition-all duration-300">
+                    <!-- Left: Details -->
+                    <div class="md:w-3/5">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <span id="ex-badge" class="bg-brand-sand text-brand-terracotta font-bold text-xs uppercase px-2.5 py-1 rounded-md tracking-wider">Cvik 1</span>
+                            <span id="ex-target" class="text-xs text-gray-500 font-semibold italic">Základní postoj & Stabilita</span>
+                        </div>
+                        <h3 id="ex-title" class="text-2xl md:text-3xl font-bold text-brand-charcoal mb-4">Surfový postoj na jedné noze</h3>
+                        
+                        <!-- Info Blocks Grid -->
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-brand-beige p-3 rounded-xl border border-brand-sand">
+                                <span class="text-xs text-gray-400 uppercase block font-semibold">Zaměření</span>
+                                <span id="ex-focus" class="text-sm font-bold text-brand-charcoal">Kotníky, Hluboké svaly core</span>
+                            </div>
+                            <div class="bg-brand-beige p-3 rounded-xl border border-brand-sand">
+                                <span class="text-xs text-gray-400 uppercase block font-semibold">Dávkování</span>
+                                <span id="ex-dosage" class="text-sm font-bold text-brand-charcoal">3 série po 30-45 sekundách</span>
+                            </div>
+                        </div>
+
+                        <!-- Instruction Steps -->
+                        <div class="space-y-4 mb-6">
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-terracotta uppercase tracking-wider mb-1">Jak na to</h4>
+                                <p id="ex-setup" class="text-gray-600 text-sm md:text-base">Postav se na jednu nohu, mírně pokrč koleno (jako v postoji na desce). Druhou nohu zvedni za sebe nebo ji drž volně nad zemí. Ruce rozpaž pro lepší balanc.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-terracotta uppercase tracking-wider mb-1">Správné Provedení</h4>
+                                <p id="ex-execution" class="text-gray-600 text-sm md:text-base">Jdi do mírného podřepu (stačí pár centimetrů), drž pevný střed těla. Koleno ti nesmí padat dovnitř. Vydrž v této pozici stabilní.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pro Tip Card -->
+                        <div class="bg-brand-sand bg-opacity-50 p-4 rounded-xl border-l-4 border-brand-terracotta mb-6">
+                            <span class="font-bold text-xs text-brand-terracotta uppercase tracking-wider block mb-1">PRO-TIP:</span>
+                            <p id="ex-protip" class="text-xs md:text-sm text-brand-charcoal italic">Zavři u toho oči. Okamžitě ucítíš, jak ti začne intenzivně pracovat kotník a hluboké stabilizační svaly.</p>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex items-center gap-4">
+                            <button id="complete-btn" onclick="toggleCompleteCurrent()" class="flex-grow md:flex-grow-0 bg-brand-charcoal hover:bg-brand-terracotta text-white font-bold py-3 px-6 rounded-xl transition duration-300 flex items-center justify-center space-x-2 shadow-sm">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span id="complete-btn-text">Označit jako hotové</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Visual Animation Area (SVG & Aesthetic Visualizer) -->
+                    <div class="md:w-2/5 mt-6 md:mt-0 flex flex-col justify-center items-center bg-brand-sand rounded-2xl p-6 min-h-[300px] border border-brand-sand">
+                        <!-- Custom SVG dynamic visualizer showing the posture focus -->
+                        <div class="relative w-full max-w-[240px] h-[240px] flex items-center justify-center">
+                            <!-- Background board design -->
+                            <div class="absolute inset-0 bg-white bg-opacity-40 rounded-full scale-90 flex items-center justify-center border border-brand-sand">
+                                <div class="w-11/12 h-1/6 bg-brand-terracotta bg-opacity-10 rounded-full rotate-12 flex justify-center items-center">
+                                    <div class="w-full h-1 bg-brand-terracotta bg-opacity-20 border-dashed border-t"></div>
+                                </div>
+                            </div>
+                            <!-- Core Active Area Visualized as Radar pulse -->
+                            <div id="visualizer-target" class="w-16 h-16 bg-brand-terracotta bg-opacity-30 rounded-full animate-ping absolute"></div>
+                            
+                            <!-- Static Silhouette Icon mapping key stabilizer muscle -->
+                            <svg class="w-32 h-32 text-brand-charcoal relative z-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="18" r="8" fill="currentColor" />
+                                <path d="M50 26C45 26 38 32 38 45C38 49 42 52 45 48L47 38L47 62C47 68 42 75 35 80C39 84 45 80 47 75L50 60L53 75C55 80 61 84 65 80C58 75 53 68 53 62L53 38L55 48C58 52 62 49 62 45C62 32 55 26 50 26Z" fill="currentColor" />
+                            </svg>
+                            
+                            <!-- Ankle Stability Highlight Indicator -->
+                            <span class="absolute bottom-4 bg-white px-3 py-1 text-xs font-bold rounded-full shadow-sm border border-brand-sand text-center">
+                                Aktivní zóna: <span id="active-zone-text" class="text-brand-terracotta">Kotníky & Core</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATIC PDF PRINT TEMPLATE - VISIBLE ONLY DURING PRINT -->
+        <section class="hidden print:block print-card bg-white p-8 mb-4">
+            <div class="flex justify-between items-start border-b-2 border-brand-terracotta pb-4 mb-6">
+                <div>
+                    <span class="text-brand-terracotta font-bold text-sm tracking-widest uppercase">SheSkates.cz Premium</span>
+                    <h1 class="text-3xl font-extrabold text-brand-charcoal">5 Cviků na stabilitu</h1>
+                    <p class="text-gray-500 text-xs italic">Naskoč na longboard s dokonalou rovnováhou</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-400 block">Přípravný materiál pro</span>
+                    <span class="text-sm font-bold text-brand-charcoal">SheSkates Camp 2026</span>
+                </div>
+            </div>
+
+            <!-- Print Card 1 -->
+            <div class="mb-6 p-4 border-l-4 border-brand-terracotta bg-gray-50 print-card">
+                <h3 class="text-lg font-bold text-brand-charcoal">1. Surfový postoj na jedné noze</h3>
+                <p class="text-xs text-gray-500 italic mb-2">Základní stavební kámen pro jízdu i pushování (odrážení)</p>
+                <p class="text-sm mb-1"><strong>Jak na to:</strong> Postav se na jednu nohu, pokrč koleno. Druhou nohu zvedni za sebe, ruce rozpaž.</p>
+                <p class="text-sm"><strong>Provedení:</strong> Mírný podřep, rovná záda, koleno nepadá dovnitř. <strong>Série:</strong> 3× 30-45s na každou nohu.</p>
+                <p class="text-xs text-brand-terracotta mt-2"><strong>PRO-TIP:</strong> Zavři u toho oči pro zapojení hlubokých svalů.</p>
+            </div>
+
+            <!-- Print Card 2 -->
+            <div class="mb-6 p-4 border-l-4 border-brand-terracotta bg-gray-50 print-card">
+                <h3 class="text-lg font-bold text-brand-charcoal">2. Rotace trupu v podřepu</h3>
+                <p class="text-xs text-gray-500 italic mb-2">Pro plynulé zatáčení a správnou práci ramen</p>
+                <p class="text-sm mb-1"><strong>Jak na to:</strong> Postoj na šířku ramen, podřep, pevný střed těla. Ruce drž před hrudníkem.</p>
+                <p class="text-sm"><strong>Provedení:</strong> S výdechem rotuj trup doprava, boky a kolena drží směr vpřed. S nádechem na střed, pak vlevo. <strong>Série:</strong> 3× 12 rotací.</p>
+                <p class="text-xs text-brand-terracotta mt-2"><strong>PRO-TIP:</strong> Pohyb vychází z břicha, ramena vedou oblouk jako na surfskatu.</p>
+            </div>
+
+            <!-- Print Card 3 -->
+            <div class="mb-6 p-4 border-l-4 border-brand-terracotta bg-gray-50 print-card">
+                <h3 class="text-lg font-bold text-brand-charcoal">3. Holubička s diagonálním vzpažením</h3>
+                <p class="text-xs text-gray-500 italic mb-2">Pro stabilitu zadního řetězce svalů a jistotu v rychlosti</p>
+                <p class="text-sm mb-1"><strong>Jak na to:</strong> Stoj na jedné noze, rovný předklon, druhou nohu zanožuj rovnoběžně se zemí.</p>
+                <p class="text-sm"><strong>Provedení:</strong> Protější ruku natáhni vpřed. Vteřinu vydrž a vrať se bez položení nohy. <strong>Série:</strong> 3× 10 na nohu.</p>
+                <p class="text-xs text-brand-terracotta mt-2"><strong>PRO-TIP:</strong> Kyčle drž neustále srovnané se zemí.</p>
+            </div>
+
+            <div class="print-page-break"></div>
+
+            <!-- Print Card 4 -->
+            <div class="mb-6 p-4 border-l-4 border-brand-terracotta bg-gray-50 print-card">
+                <h3 class="text-lg font-bold text-brand-charcoal">4. Výpady do stran s výdrží</h3>
+                <p class="text-xs text-gray-500 italic mb-2">Příprava na přenášení váhy z paty na špičku (Carving)</p>
+                <p class="text-sm mb-1"><strong>Jak na to:</strong> Krok stranou, pokrč koleno a dosedni dozadu. Druhá noha rovná.</p>
+                <p class="text-sm"><strong>Provedení:</strong> Odtlač se zpět, zvedni koleno k hrudníku a vydrž 2 sekundy v balancu. <strong>Série:</strong> 3× 10 na stranu.</p>
+            </div>
+
+            <!-- Print Card 5 -->
+            <div class="mb-6 p-4 border-l-4 border-brand-terracotta bg-gray-50 print-card">
+                <h3 class="text-lg font-bold text-brand-charcoal">5. Výpony na špičkách s držením</h3>
+                <p class="text-xs text-gray-500 italic mb-2">Ochrana kotníků a maximální síla zatlačení do hran</p>
+                <p class="text-sm mb-1"><strong>Jak na to:</strong> Postoj snožmo nebo na jedné noze.</p>
+                <p class="text-sm"><strong>Provedení:</strong> Výpon na špičky, nahoře 3s výdrž se zpevněným lýtkem a břichem. Pomalu dolů. <strong>Série:</strong> 3× 15 opakování.</p>
+            </div>
+
+            <div class="bg-brand-charcoal text-white p-6 rounded-2xl text-center mt-12 print-card">
+                <h3 class="font-bold text-sm tracking-wider uppercase mb-1">MAKE IT A HABIT</h3>
+                <p class="text-xs text-gray-300">Pravidelnost je klíčem k dokonalé stabilitě. Vidíme se na asfaltu!</p>
+                <div class="text-xs font-bold mt-4 text-brand-terracotta">www.sheskates.cz</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-charcoal text-white py-12 px-6 md:px-12 no-print border-t border-gray-800">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="font-extrabold tracking-widest text-lg uppercase">SheSkates<span class="text-brand-terracotta">.cz</span></span>
+                <p class="text-xs text-gray-400 mt-1">Holky na longboardech a surfskatech společně.</p>
+            </div>
+            <div class="flex space-x-6 text-sm">
+                <a href="https://sheskates.cz" target="_blank" class="hover:text-brand-terracotta transition">O nás</a>
+                <a href="https://sheskates.cz/kempy" target="_blank" class="hover:text-brand-terracotta transition">Kempy</a>
+                <a href="https://sheskates.cz/komunita" target="_blank" class="hover:text-brand-terracotta transition">Komunita</a>
+            </div>
+            <div class="text-xs text-gray-500">
+                &copy; 2026 SheSkates. Všechna práva vyhrazena.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data for exercises
+        const exercises = [
+            {
+                id: 1,
+                badge: "Cvik 1",
+                target: "Základní postoj & Stabilita",
+                title: "Surfový postoj na jedné noze",
+                focus: "Kotníky, Hluboké svaly core",
+                dosage: "3 série po 30-45 sekundách na každou nohu",
+                setup: "Postav se na jednu nohu, mírně pokrč koleno (jako v postoji na desce). Druhou nohu zvedni za sebe nebo ji drž volně nad zemí. Ruce rozpaž pro lepší balanc.",
+                execution: "Jdi do mírného podřepu (stačí pár centimetrů), drž pevný střed těla. Koleno ti nesmí padat dovnitř. Vydrž v této pozici stabilní a nepolevuj v napětí.",
+                protip: "Zavři u toho oči. Okamžitě ucítíš, jak ti začne intenzivně pracovat kotník a hluboké stabilizační svaly.",
+                zone: "Kotníky & Core"
+            },
+            {
+                id: 2,
+                badge: "Cvik 2",
+                target: "Práce ramen & Rotace trupu",
+                title: "Rotace trupu v podřepu",
+                focus: "Vnitřní šikmé břišní svaly",
+                dosage: "3 série po 12 opakováních na každou stranu",
+                setup: "Rozkroč se na šířku ramen (simulace postoje na desce), jdi do nižšího podřepu a zpevni břicho. Ruce dej před hrudník, jako bys držela neviditelný válec.",
+                execution: "S výdechem rotuj horní polovinu těla (hrudník a ramena) maximálně doprava. Boky a kolena přitom zůstávají pevně směřovat dopředu. S nádechem se vrať na střed.",
+                protip: "Pohyb vychází čistě z břicha, nikoli z rukou. Představ si, že horní polovinou těla plynule vedeš oblouk na surfskatu.",
+                zone: "Šikmé břišní svaly"
+            },
+            {
+                id: 3,
+                badge: "Cvik 3",
+                target: "Zadní svalové řetězce & Rychlost",
+                title: "Holubička s diagonálním vzpažením",
+                focus: "Hamstringy, hýždě, záda",
+                dosage: "3 série po 10 opakováních na každou nohu",
+                setup: "Stojíš na jedné noze. S rovnými zády začni předklánět trup a současně zanožuj druhou nohu, dokud nebudou trup a noha rovnoběžně se zemí.",
+                execution: "Paži na straně stojné nohy natáhni dopředu. V dolní pozici vteřinu vydrž a silou hýždě se vrať zpět do stoje bez toho, aby ses dotkla druhou nohou země.",
+                protip: "Boky drž celou dobu srovnané rovnoběžně se zemí, neotvírej bok zanožené nohy nahoru. To zaručí maximální stabilitu kyčle.",
+                zone: "Hamstringy & Hýždě"
+            },
+            {
+                id: 4,
+                badge: "Cvik 4",
+                target: "Přenášení váhy (Carving & Pumpování)",
+                title: "Výpady do stran s výdrží",
+                focus: "Stehna, hýždě, reaktivita",
+                dosage: "3 série po 10 opakováních na každou stranu",
+                setup: "Udej velký krok stranou (např. doprava), pokrč pravé koleno a dosedni dozadu, jako bys sedala na židli. Levá noha zůstává propnutá.",
+                execution: "Odtlač se z pravé nohy a dynamicky se vrať do stoje. Místo došlápnutí ale vytáhni pravé koleno nahoru k hrudníku a zůstaň na 2 sekundy stát na levé noze.",
+                protip: "Pracuj na hladkém a dynamickém přechodu. Síla v odrazu ti dodá potřebný švih pro pumpování.",
+                zone: "Stehna & Reaktivita"
+            },
+            {
+                id: 5,
+                badge: "Cvik 5",
+                target: "Síla v hranách & Prevence zranění",
+                title: "Výpony na špičkách s držením",
+                focus: "Kotníky, lýtkové svaly",
+                dosage: "3 série po 15 opakováních",
+                setup: "Postav se rovně (pro těžší variantu rovnou na jednu nohu).",
+                execution: "Plynule se zvedni na špičky, co nejvýše to jde. Nahoře zatni lýtka a břicho a vydrž 3 sekundy. Poté se pomalu a kontrolovaně vracej dolů.",
+                protip: "Paty pokládej těsně nad zem – nepovoluj napětí mezi jednotlivými opakováními. Trénuješ tím tlumící schopnost kotníků.",
+                zone: "Kotníky & Lýtka"
+            }
+        ];
+
+        let currentExIndex = 0;
+        let completedExercises = new Set();
+
+        // Main function to select/show specific exercise
+        function selectExercise(index) {
+            currentExIndex = index;
+            const ex = exercises[index];
+            
+            // Render text data directly into DOM elements
+            document.getElementById('ex-badge').innerText = ex.badge;
+            document.getElementById('ex-target').innerText = ex.target;
+            document.getElementById('ex-title').innerText = ex.title;
+            document.getElementById('ex-focus').innerText = ex.focus;
+            document.getElementById('ex-dosage').innerText = ex.dosage;
+            document.getElementById('ex-setup').innerText = ex.setup;
+            document.getElementById('ex-execution').innerText = ex.execution;
+            document.getElementById('ex-protip').innerText = ex.protip;
+            document.getElementById('active-zone-text').innerText = ex.zone;
+            
+            // Update active state class names for tabs
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach((tab, i) => {
+                if (i === index) {
+                    tab.className = "tab-btn px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition duration-300 bg-brand-terracotta text-white";
+                } else {
+                    tab.className = "tab-btn px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition duration-300 text-gray-500 hover:bg-brand-sand";
+                }
+            });
+            
+            // Sync check button UI
+            const completeBtn = document.getElementById('complete-btn');
+            const completeBtnText = document.getElementById('complete-btn-text');
+            const checkIcon = completeBtn.querySelector('i');
+            
+            if (completedExercises.has(index)) {
+                completeBtn.className = "flex-grow md:flex-grow-0 bg-brand-sage hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-xl transition duration-300 flex items-center justify-center space-x-2 shadow-sm";
+                completeBtnText.innerText = "Splněno (Kliknutím zrušíš)";
+                checkIcon.className = "fa-solid fa-circle-check";
+            } else {
+                completeBtn.className = "flex-grow md:flex-grow-0 bg-brand-charcoal hover:bg-brand-terracotta text-white font-bold py-3 px-6 rounded-xl transition duration-300 flex items-center justify-center space-x-2 shadow-sm";
+                completeBtnText.innerText = "Označit jako hotové";
+                checkIcon.className = "fa-regular fa-circle-check";
+            }
+            
+            // Apply a smooth subtle fading transition effect to the detail panel
+            const panel = document.getElementById('exercise-panel');
+            panel.classList.add('opacity-40');
+            setTimeout(() => {
+                panel.classList.remove('opacity-40');
+            }, 150);
+        }
+
+        // Functions for cycling through slider exercises
+        function prevExercise() {
+            let prevIndex = currentExIndex - 1;
+            if (prevIndex < 0) {
+                prevIndex = exercises.length - 1;
+            }
+            selectExercise(prevIndex);
+        }
+
+        function nextExercise() {
+            let nextIndex = (currentExIndex + 1) % exercises.length;
+            selectExercise(nextIndex);
+        }
+
+        // Toggles completed state for currently active exercise
+        function toggleCompleteCurrent() {
+            if (completedExercises.has(currentExIndex)) {
+                completedExercises.delete(currentExIndex);
+            } else {
+                completedExercises.add(currentExIndex);
+            }
+            selectExercise(currentExIndex);
+            updateProgress();
+        }
+
+        // Recalculates and updates progress bar UI elements
+        function updateProgress() {
+            const percent = Math.round((completedExercises.size / exercises.length) * 100);
+            
+            document.getElementById('progress-bar').style.width = percent + '%';
+            document.getElementById('progress-percent').innerText = percent + '% Dokončeno';
+            
+            const badgeEl = document.getElementById('progress-badge');
+            if (percent === 0) {
+                badgeEl.innerText = 'Začni odškrtávat cviky a odemkni "Camp-Ready" status!';
+            } else if (percent < 50) {
+                badgeEl.innerText = 'Skvělý start! První kroky ke stabilitě máš za sebou.';
+            } else if (percent < 100) {
+                badgeEl.innerText = 'Už jsi za polovinou! Tvoje kotníky ti na kempu poděkují.';
+            } else {
+                badgeEl.innerText = 'Fantastické! Jsi 100% "Camp-Ready"! Vidíme se na kempu! 🛹';
+            }
+        }
+
+        // Balance Simulator Game Logic
+        const canvas = document.getElementById('balanceCanvas');
+        const ctx = canvas.getContext('2d');
+        let animationFrameId;
+        let gameActive = false;
+        let skaterX = 0; // -100 to 100 range
+        let skaterSpeed = 0;
+        let score = 0;
+        let highscore = parseFloat(localStorage.getItem('ss_highscore') || '0');
+        
+        document.getElementById('game-highscore').innerText = highscore.toFixed(1) + 's';
+
+        // Render game board, dynamic grids and character ball
+        function drawGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const balanceDeficit = Math.abs(skaterX) / 100;
+            if (balanceDeficit > 0.65 && gameActive) {
+                const pulse = Math.sin(Date.now() / 100) * 0.5 + 0.5;
+                const redIntensity = Math.floor((balanceDeficit - 0.6) * 2.5 * 100);
+                ctx.fillStyle = `rgb(${43 + redIntensity * pulse}, 41, 38)`;
+            } else {
+                ctx.fillStyle = '#2B2926';
+            }
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.strokeStyle = '#3D3A36';
+            ctx.lineWidth = 2;
+            const lineOffset = gameActive ? (Date.now() / 10) % 40 : 0;
+            for(let i = -40; i < canvas.width + 40; i += 40) {
+                ctx.beginPath();
+                ctx.moveTo(i + lineOffset, 0);
+                ctx.lineTo(i - 40 + lineOffset, canvas.height);
+                ctx.stroke();
+            }
+
+            ctx.fillStyle = 'rgba(143, 161, 144, 0.15)';
+            ctx.fillRect(canvas.width/2 - 45, 10, 90, canvas.height - 20);
+            
+            ctx.strokeStyle = 'rgba(143, 161, 144, 0.4)';
+            ctx.setLineDash([5, 5]);
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2 - 45, 10);
+            ctx.lineTo(canvas.width/2 - 45, canvas.height - 10);
+            ctx.moveTo(canvas.width/2 + 45, 10);
+            ctx.lineTo(canvas.width/2 + 45, canvas.height - 10);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            ctx.strokeStyle = 'rgba(229, 124, 103, 0.4)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2 - 120, 10);
+            ctx.lineTo(canvas.width/2 - 120, canvas.height - 10);
+            ctx.moveTo(canvas.width/2 + 120, 10);
+            ctx.lineTo(canvas.width/2 + 120, canvas.height - 10);
+            ctx.stroke();
+
+            const boardY = canvas.height - 50;
+            const tiltAngle = (skaterX / 100) * 0.18;
+            
+            ctx.save();
+            ctx.translate(canvas.width / 2, boardY);
+            ctx.rotate(tiltAngle);
+
+            ctx.fillStyle = '#8c857b';
+            ctx.fillRect(-70, 10, 140, 6);
+            ctx.fillStyle = '#E57C67';
+            ctx.beginPath();
+            ctx.arc(-70, 16, 8, 0, Math.PI*2);
+            ctx.arc(70, 16, 8, 0, Math.PI*2);
+            ctx.fill();
+
+            ctx.fillStyle = '#F3ECE3';
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 95, 8, 0, 0, Math.PI*2);
+            ctx.fill();
+            
+            ctx.fillStyle = '#2B2926';
+            ctx.fillRect(-50, -5, 100, 2);
+            ctx.fillRect(-80, -3, 15, 1);
+            ctx.fillRect(65, -3, 15, 1);
+
+            ctx.restore();
+
+            const skaterWorldX = (canvas.width / 2) + (skaterX / 100) * 130;
+            const skaterY = boardY - 35 - Math.abs(skaterX / 100) * 5;
+
+            ctx.fillStyle = 'rgba(0,0,0,0.3)';
+            ctx.beginPath();
+            ctx.ellipse(skaterWorldX, boardY - 5, 12, 4, 0, 0, Math.PI*2);
+            ctx.fill();
+
+            const glowSize = 10 + Math.sin(Date.now() / 150) * 3;
+            ctx.shadowBlur = glowSize;
+            ctx.shadowColor = balanceDeficit > 0.65 ? '#E57C67' : '#8FA190';
+            ctx.fillStyle = balanceDeficit > 0.65 ? '#E57C67' : '#8FA190';
+            ctx.beginPath();
+            ctx.arc(skaterWorldX, skaterY, 12, 0, Math.PI*2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath();
+            ctx.arc(skaterWorldX, skaterY, 4, 0, Math.PI*2);
+            ctx.fill();
+
+            if (Math.abs(skaterX) > 95) {
+                endGame();
+            }
+        }
+
+        // Main loop logic with dynamic gravity difficulty spike
+        function updateGame() {
+            if (!gameActive) return;
+
+            // Increment difficulty by multiplying drift/gravity by 3% every passing second
+            const playDurationMultiplier = 1 + (score * 0.03);
+            
+            // Random wind/drift force growing stronger over time
+            const drift = Math.sin(Date.now() / 600) * 0.04 * playDurationMultiplier;
+            skaterSpeed += drift;
+            
+            // Classic gravity tilt acceleration (further from center = faster fall)
+            skaterSpeed += (skaterX * 0.0055 * playDurationMultiplier);
+            
+            // Core stability assist: micro-correction within center 20%
+            if (Math.abs(skaterX) < 20) {
+                skaterSpeed -= (skaterX * 0.008);
+            }
+            
+            // Friction and air resistance damping slider
+            skaterSpeed *= 0.90;
+            skaterX += skaterSpeed;
+            skaterX = Math.max(-100, Math.min(100, skaterX));
+
+            score += 1 / 60;
+            document.getElementById('game-score').innerText = score.toFixed(1) + 's';
+
+            const adviceEl = document.getElementById('game-feedback');
+            const balanceDeficit = Math.abs(skaterX);
+            if (balanceDeficit < 25) {
+                adviceEl.innerHTML = `Perfektní postoj! Rychlost: ${(playDurationMultiplier * 100 - 100).toFixed(0)}% navíc 🏄‍♀️`;
+                adviceEl.className = "text-sm text-brand-sage font-bold italic transition";
+            } else if (balanceDeficit < 65) {
+                adviceEl.innerHTML = "Mírný náklon. Jemnými pohyby to srovnej!";
+                adviceEl.className = "text-sm text-brand-accent font-semibold italic transition";
+            } else {
+                adviceEl.innerHTML = "POZOR! Padáš! Vybalancuj to opačným směrem! 🚨";
+                adviceEl.className = "text-sm text-brand-terracotta font-extrabold animate-bounce transition";
+            }
+
+            drawGame();
+            animationFrameId = requestAnimationFrame(updateGame);
+        }
+
+        // Apply physical push to center or sides with instant recovery counter-drift braking
+        function pushSkater(force) {
+            if (!gameActive) return;
+            
+            // Instantly cancel counter-forces to feel highly responsive
+            if ((force > 0 && skaterSpeed < 0) || (force < 0 && skaterSpeed > 0)) {
+                skaterSpeed *= 0.3;
+            }
+            
+            skaterX += force * 2.2;
+            skaterSpeed += force * 0.45;
+            skaterX = Math.max(-95, Math.min(95, skaterX));
+        }
+
+        // Setup and launch a new balancing round
+        function startGame() {
+            if (gameActive) return;
+            
+            gameActive = true;
+            skaterX = 0;
+            skaterSpeed = 0;
+            score = 0;
+            document.getElementById('game-feedback').innerHTML = "Drž balanc, s každou vteřinou to bude těžší! 🔥";
+            document.getElementById('game-start-btn').innerText = "Restartovat";
+            updateGame();
+        }
+
+        // Halt simulation and update personal highscores
+        function endGame() {
+            gameActive = false;
+            cancelAnimationFrame(animationFrameId);
+            document.getElementById('game-feedback').innerHTML = "Ups! Ztratila jsi rovnováhu. Zkus to znovu! 🛹";
+            
+            if (score > highscore) {
+                highscore = score;
+                localStorage.setItem('ss_highscore', highscore.toString());
+                document.getElementById('game-highscore').innerText = highscore.toFixed(1) + 's';
+                document.getElementById('game-feedback').innerHTML = "Nový osobní rekord! Jsi rozená surfskaterka! 🎉";
+            }
+            
+            ctx.fillStyle = 'rgba(229, 124, 103, 0.45)';
+            ctx.fillRect(0,0, canvas.width, canvas.height);
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = 'bold 22px Plus Jakarta Sans';
+            ctx.textAlign = 'center';
+            ctx.fillText("PADÁŠ!", canvas.width / 2, canvas.height / 2 - 10);
+            ctx.font = 'normal 13px Plus Jakarta Sans';
+            ctx.fillText("Zkus to znova, teď už to vyjde!", canvas.width / 2, canvas.height / 2 + 15);
+        }
+
+        // Controls binding
+        document.getElementById('game-start-btn').addEventListener('click', startGame);
+        document.getElementById('btn-left').addEventListener('click', () => pushSkater(-4.5));
+        document.getElementById('btn-right').addEventListener('click', () => pushSkater(4.5));
+
+        // Keyboard controls
+        window.addEventListener('keydown', (e) => {
+            if (!gameActive) return;
+            if (e.key === 'ArrowLeft') {
+                pushSkater(-4);
+                e.preventDefault();
+            } else if (e.key === 'ArrowRight') {
+                pushSkater(4);
+                e.preventDefault();
+            }
+        });
+
+        // Initialize App State
+        selectExercise(0);
+        drawGame();
+    </script>
+</body>
+</html>
