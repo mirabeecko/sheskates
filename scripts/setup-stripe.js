@@ -70,6 +70,7 @@ async function main() {
     "line_items[0][quantity]": "1",
     "after_completion[type]": "redirect",
     "after_completion[redirect][url]": THANKYOU_URL,
+    "allow_promotion_codes": "true",
   });
   console.log("  1 osoba:     ", linkSolo.url);
 
@@ -78,6 +79,7 @@ async function main() {
     "line_items[0][quantity]": "1",
     "after_completion[type]": "redirect",
     "after_completion[redirect][url]": THANKYOU_URL,
+    "allow_promotion_codes": "true",
   });
   console.log("  Já a kámoška:", linkDuo.url);
 

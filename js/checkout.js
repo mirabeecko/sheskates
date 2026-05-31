@@ -151,6 +151,20 @@ form.addEventListener('submit', async (e) => {
       timestamp: Date.now(),
     }));
 
+    // GA4 begin_checkout
+    if (typeof gtag === 'function') {
+      gtag('event', 'begin_checkout', {
+        currency: 'CZK',
+        value: data.variant === 'solo' ? 6290 : 9435,
+        items: [{
+          item_name: data.variant === 'solo' ? 'Standardní vstupenka' : 'Akce pro dvě',
+          item_id: data.variant,
+          price: data.variant === 'solo' ? 6290 : 9435,
+          quantity: 1
+        }]
+      });
+    }
+
     // GTM dataLayer — begin_checkout event
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -175,6 +189,9 @@ form.addEventListener('submit', async (e) => {
     const url = new URL(paymentLink);
     url.searchParams.set('prefilled_email', data.email);
     if (orderId) url.searchParams.set('client_reference_id', orderId);
+
+    const promoCode = document.getElementById('promoCode')?.value.trim();
+    if (promoCode) url.searchParams.set('prefilled_promo_code', promoCode);
 
     window.location.href = url.toString();
 

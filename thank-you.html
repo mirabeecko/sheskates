@@ -12,6 +12,10 @@ gtag('consent', 'default', {
   'ad_personalization': 'denied',
   'wait_for_update': 500
 });
+
+// GA4 and Google Ads Config
+gtag('config', 'G-V6QK6EWJKR', { 'debug_mode': true });
+gtag('config', 'AW-18191922314');
 </script>
 <!-- End Google Consent Mode -->
 <!-- Google Tag Manager -->
@@ -68,8 +72,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         price: PRICES[order.variant] || 0,
         firstName: order.firstName || '',
         lastName: order.lastName || '',
+        email: order.email || '',
+        phone: order.phone || '',
         orderId: order.orderId || ('WEB_' + Date.now()),
       } : null;
+
+      if (window.__order) {
+        // Enhanced Conversions — nastavení uživatelských dat
+        if (typeof gtag === 'function') {
+          gtag('set', 'user_data', {
+            'email': window.__order.email,
+            'phone_number': window.__order.phone
+          });
+        }
 
         // GTM dataLayer — purchase event se skutečnými daty
         window.dataLayer.push({
@@ -96,6 +111,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'transaction_id': window.__order.orderId
           });
         }
+      }
 
         // Vyčistit localStorage po zobrazení
         localStorage.removeItem('sheskates_checkout');

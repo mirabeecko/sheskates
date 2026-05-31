@@ -12,6 +12,10 @@ gtag('consent', 'default', {
   'ad_personalization': 'denied',
   'wait_for_update': 500
 });
+
+// GA4 and Google Ads Config
+gtag('config', 'G-V6QK6EWJKR', { 'debug_mode': true });
+gtag('config', 'AW-18191922314');
 </script>
 <!-- End Google Consent Mode -->
 <!-- Google Tag Manager -->
@@ -516,6 +520,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="form-group">
               <label for="notes">Poznámka <span style="font-weight:400;color:var(--text-muted)">(nepovinné)</span></label>
               <textarea id="notes" name="notes" rows="3" placeholder="Alergie, speciální požadavky, termín..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="promoCode">Slevový kupon <span style="font-weight:400;color:var(--text-muted)">(nepovinné)</span></label>
+              <input type="text" id="promoCode" name="promoCode" placeholder="Zadej slevový kód">
             </div>
 
             <div class="checkout-submit">

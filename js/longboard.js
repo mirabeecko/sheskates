@@ -62,6 +62,7 @@ function startCountdown() {
 function bindPixelCta() {
   document.querySelectorAll('[data-cta="longboard-kemp-buy"]').forEach(btn => {
     btn.addEventListener('click', () => {
+      // Meta Pixel
       if (typeof fbq !== 'undefined') {
         fbq('track', 'InitiateCheckout', {
           content_name: 'Longboard víkend červen 2026',
@@ -69,6 +70,21 @@ function bindPixelCta() {
           value: 6290
         });
       }
+
+      // GA4 add_to_cart
+      if (typeof gtag === 'function') {
+        gtag('event', 'add_to_cart', {
+          currency: 'CZK',
+          value: 6290,
+          items: [{
+            item_name: 'Longboard víkend červen 2026',
+            item_category: 'Camps',
+            price: 6290,
+            quantity: 1
+          }]
+        });
+      }
+
       // GTM DataLayer push
       if (window.dataLayer) {
         dataLayer.push({
@@ -147,6 +163,14 @@ function setupExitPopup() {
       // GTM event
       if (window.dataLayer) {
         dataLayer.push({ event: 'exit_popup_submit', email_domain: email.split('@')[1] });
+      }
+
+      // GA4 / Google Ads lead event
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          'email_domain': email.split('@')[1],
+          'method': 'Exit Intent Popup'
+        });
       }
 
       form.innerHTML = '<p style="color:#4ade80; font-weight:600; text-align:center; padding:1rem;">PDF je na cestě! 📬</p>';
