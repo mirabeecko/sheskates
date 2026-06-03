@@ -50,7 +50,12 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  scroll-padding-top: 108px;
+}
+
+/* Smooth anchor scrolling offset for fixed header + urgency bar */
+[id] {
+  scroll-margin-top: 108px;
 }
 
 body {
@@ -268,6 +273,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 5rem 0;
 }
 
+@media (max-width: 767px) {
+  .section {
+    min-height: auto;
+    scroll-snap-align: none;
+    padding: 3rem 0;
+  }
+}
+
 .section-dark {
   background: var(--bg-dark);
 }
@@ -280,6 +293,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: relative;
   scroll-snap-align: start;
   overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: auto;
+    scroll-snap-align: none;
+    padding: 5rem 0 3rem;
+  }
 }
 
 .hero::before {
@@ -350,6 +371,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: 0.75rem;
   text-shadow: 0 4px 30px rgba(0,0,0,0.5);
   white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .hero-title {
+    white-space: normal;
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
 }
 
 .hero-title .accent {
@@ -1354,8 +1382,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 @media (max-width: 767px) {
-  .sticky-mobile-cta { display: flex; }
-  body { padding-bottom: 7.5rem; }
+  html { scroll-padding-top: 100px; }
+  [id] { scroll-margin-top: 100px; }
+
+  .sticky-mobile-cta { display: flex; bottom: 36px; padding: 0.5rem 0.75rem; }
+  body { padding-bottom: 5.5rem; }
+  .header-cta { display: none; }
+  .hero-content { padding-top: 0; }
+
   .pricing-arrival {
     font-size: 0.8125rem;
     padding: 0.625rem;
@@ -1366,5 +1400,32 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
   .pricing-label {
     font-size: 0.8125rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.625rem;
+  }
+  .payment-trust span {
+    font-size: 0.75rem;
+  }
+
+  /* Kompaktnější karty na mobilu */
+  .testimonial-card { padding: 1.25rem; }
+  .skill-card { padding: 1.5rem; }
+  .pricing-card { padding: 1.5rem; }
+  .faq-question { padding: 1rem 1.25rem; }
+  .faq-item.active .faq-answer { padding: 0 1.25rem 1.25rem; }
+
+  /* Rychlejší reveal na mobilu */
+  .reveal {
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   }
 }
