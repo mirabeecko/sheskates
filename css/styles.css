@@ -50,12 +50,12 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 108px;
+  scroll-padding-top: 64px;
 }
 
-/* Smooth anchor scrolling offset for fixed header + urgency bar */
+/* Smooth anchor scrolling offset for fixed header */
 [id] {
-  scroll-margin-top: 108px;
+  scroll-margin-top: 64px;
 }
 
 body {

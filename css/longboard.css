@@ -128,7 +128,7 @@
    HEADER OFFSET (kvůli urgency baru)
    ================================================================ */
 .lk-header {
-  top: 44px !important;
+  top: 0 !important;
 }
 
 .lk-header.scrolled {
@@ -145,12 +145,12 @@
 }
 
 .lk-hero .hero-content {
-  padding-top: calc(4rem + 44px + 64px); /* urgency + header + extra */
+  padding-top: calc(4rem + 64px); /* header + extra */
 }
 
 @media (max-width: 767px) {
   .lk-hero .hero-content {
-    padding-top: calc(2rem + 36px + 56px);
+    padding-top: calc(2rem + 56px);
   }
 }
 
@@ -1050,7 +1050,7 @@
     padding: 0.25rem 0.625rem;
     font-size: 0.6875rem;
   }
-  .lk-header { top: 36px !important; }
+  .lk-header { top: 0 !important; }
 }
 
 @media (min-width: 768px) {
