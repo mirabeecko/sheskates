@@ -913,6 +913,132 @@
 }
 
 /* ================================================================
+   LIGHT SECTIONS — bílé full-width bloky na landing
+   ================================================================ */
+.light-section {
+  background: #fff;
+  color: #1a0a1a;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.light-section .section-kicker {
+  color: var(--accent);
+}
+
+.light-section .section-title {
+  color: #1a0a1a;
+}
+
+.light-section .section-title .accent {
+  color: var(--accent);
+}
+
+.light-section .section-lead {
+  color: #555;
+}
+
+.light-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .light-block {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  .light-block.reverse {
+    direction: rtl;
+  }
+  .light-block.reverse > * {
+    direction: ltr;
+  }
+}
+
+.light-block-text h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  color: #1a0a1a;
+}
+
+.light-block-text p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.light-block-text .btn-accent {
+  display: inline-flex;
+}
+
+.light-block-img {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  aspect-ratio: 4 / 3;
+}
+
+.light-block-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.light-block-img:hover img {
+  transform: scale(1.03);
+}
+
+.light-block-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+  pointer-events: none;
+}
+
+/* Stat badges uvnitř light sekce */
+.light-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.light-stat {
+  text-align: center;
+}
+
+.light-stat-value {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.light-stat-label {
+  font-size: 0.8125rem;
+  color: #777;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 767px) {
+  .light-section { padding: 3rem 0; }
+  .light-stats { gap: 1.25rem; }
+  .light-stat-value { font-size: 1.5rem; }
+}
+
+/* ================================================================
    RESPONSIVE TWEAKS
    ================================================================ */
 @media (max-width: 767px) {
