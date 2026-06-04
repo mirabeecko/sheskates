@@ -62,14 +62,14 @@ for (const pageInfo of pages) {
       expect(hasEvent, `dataLayer should contain event "${pageInfo.expectEvent}"`).toBe(true);
     }
 
-    // 6. Ensure direct gtag.js config calls with G-V6QK6EWJKR are present for reliability
+    // 6. Ensure direct gtag.js config calls with G-KDMZ8KZC3F are present for reliability
     const inlineScriptsDirect = await page.evaluate(() => {
       return Array.from(document.querySelectorAll('script:not([src])')).map(s => s.textContent);
     });
     const hasDirectGtagConfig = inlineScriptsDirect.some(text =>
-      text.includes("gtag('config', 'G-V6QK6EWJKR'") || 
-      text.includes('gtag("config", "G-V6QK6EWJKR"')
+      text.includes("gtag('config', 'G-KDMZ8KZC3F'") || 
+      text.includes('gtag("config", "G-KDMZ8KZC3F"')
     );
-    expect(hasDirectGtagConfig, 'Inline script should contain gtag("config", "G-V6QK6EWJKR", ...)').toBe(true);
+    expect(hasDirectGtagConfig, 'Inline script should contain gtag("config", "G-KDMZ8KZC3F", ...)').toBe(true);
   });
 }
