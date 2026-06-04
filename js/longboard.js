@@ -299,6 +299,26 @@ function setupFooterYear() {
   if (el) el.textContent = `© ${new Date().getFullYear()} sheskates.cz · Vyrobeno s 🔥 pro ženy.`;
 }
 
+/* ---- Sticky CTA — zobrazí se až po scrollnutí za hero ----------- */
+function setupStickyCta() {
+  const sticky = document.getElementById('stickyCta');
+  if (!sticky) return;
+
+  // zobrazí se až po scrollnutí ~600px (za hero / u druhého bloku)
+  const threshold = 600;
+
+  function checkScroll() {
+    if (window.scrollY > threshold) {
+      sticky.classList.remove('is-hidden');
+    } else {
+      sticky.classList.add('is-hidden');
+    }
+  }
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll(); // initial check
+}
+
 /* ---- Smooth scroll for anchor CTAs ------------------------------ */
 function setupSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -306,7 +326,7 @@ function setupSmoothScroll() {
       const target = document.querySelector(a.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      const offset = 108; // urgency bar + header
+      const offset = 64; // header only (urgency bar je skrytý)
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     });
@@ -327,4 +347,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setupCarousel();
   setupFooterYear();
   setupSmoothScroll();
+  setupStickyCta();
 });

@@ -42,6 +42,12 @@
   align-items: center;
 }
 
+/* Sticky CTA skrytý na začátku, zobrazí se až po scrollnutí */
+.sticky-mobile-cta.is-hidden {
+  display: none !important;
+  transform: translateY(100%);
+}
+
 .urgency-inner {
   width: 100%;
   max-width: 1200px;
