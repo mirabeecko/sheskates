@@ -15,8 +15,8 @@ const SUPABASE_URL = 'https://tvuj-project.supabase.co'; // ← ZMĚŇ
 // STRIPE_PRICE_SOLO_ID=price_1Tb0C4CBgIxNRpERnEZ0IIYP
 // STRIPE_PRICE_DUO_ID=price_1Tb0C5CBgIxNRpERb5VN7F8B
 const PAYMENT_LINKS = {
-  solo: 'https://buy.stripe.com/bJe3cudKb13lehKb339EI06',
-  duo:  'https://buy.stripe.com/dRm00i5dF6nF5Leeff9EI07',
+  solo: 'https://buy.stripe.com/bJe6oGbC37rJb5ygnn9EI08',
+  duo:  'https://buy.stripe.com/00wfZggWn8vNa1udbb9EI09',
 };
 
 const USE_SUPABASE = SUPABASE_URL && !SUPABASE_URL.includes('tvuj-project');
@@ -60,7 +60,7 @@ function updateVariantUI() {
 
   document.getElementById('btnPrice').textContent       = formatPrice(price);
   document.getElementById('summaryVariant').textContent = label;
-  document.getElementById('summaryPrice').textContent   = formatPrice(isDuo ? 12580 : price);
+  document.getElementById('summaryPrice').textContent   = formatPrice(isDuo ? 9800 : price);
   document.getElementById('summaryTotal').textContent   = formatPrice(price);
   document.getElementById('discountLine').style.display = isDuo ? 'flex' : 'none';
 
@@ -132,7 +132,7 @@ form.addEventListener('submit', async (e) => {
       phone: data.phone,
       notes: notesParts.join(' | ') || null,
       variant: data.variant,
-      amount: data.variant === 'solo' ? 629000 : 943500,
+      amount: data.variant === 'solo' ? 490000 : 735000,
       utm_source: urlParams.get('utm_source') || null,
       utm_medium: urlParams.get('utm_medium') || null,
       utm_campaign: urlParams.get('utm_campaign') || null,
@@ -155,11 +155,11 @@ form.addEventListener('submit', async (e) => {
     if (typeof gtag === 'function') {
       gtag('event', 'begin_checkout', {
         currency: 'CZK',
-        value: data.variant === 'solo' ? 6290 : 9435,
+        value: data.variant === 'solo' ? 4900 : 7350,
         items: [{
           item_name: data.variant === 'solo' ? 'Standardní vstupenka' : 'Akce pro dvě',
           item_id: data.variant,
-          price: data.variant === 'solo' ? 6290 : 9435,
+          price: data.variant === 'solo' ? 4900 : 7350,
           quantity: 1
         }]
       });
@@ -171,11 +171,11 @@ form.addEventListener('submit', async (e) => {
       event: 'begin_checkout',
       ecommerce: {
         currency: 'CZK',
-        value: data.variant === 'solo' ? 6290 : 9435,
+        value: data.variant === 'solo' ? 4900 : 7350,
         items: [{
           item_name: data.variant === 'solo' ? 'Standardní vstupenka' : 'Akce pro dvě',
           item_id: data.variant,
-          price: data.variant === 'solo' ? 6290 : 9435,
+          price: data.variant === 'solo' ? 4900 : 7350,
           quantity: 1
         }]
       }

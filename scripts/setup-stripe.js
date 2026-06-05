@@ -44,11 +44,11 @@ async function main() {
   const priceSolo = await stripePost("prices", {
     product: productSolo.id,
     currency: "czk",
-    unit_amount: "629000", // 6 290 Kč v haléřích
+    unit_amount: "490000", // 6 290 Kč v haléřích
   });
   console.log("  Price ID:  ", priceSolo.id);
 
-  // Já a kámoška – 9 435 Kč
+  // Já a kámoška – 7 350 Kč
   console.log("\nCreating product: Já a kámoška …");
   const productDuo = await stripePost("products", {
     name: "Já a kámoška",
@@ -59,7 +59,7 @@ async function main() {
   const priceDuo = await stripePost("prices", {
     product: productDuo.id,
     currency: "czk",
-    unit_amount: "943500", // 9 435 Kč v haléřích
+    unit_amount: "735000", // 7 350 Kč v haléřích
   });
   console.log("  Price ID:  ", priceDuo.id);
 

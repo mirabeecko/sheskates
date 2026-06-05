@@ -67,7 +67,7 @@ function bindPixelCta() {
         fbq('track', 'InitiateCheckout', {
           content_name: 'Longboard víkend červen 2026',
           currency: 'CZK',
-          value: 6290
+          value: 4900
         });
       }
 
@@ -75,11 +75,11 @@ function bindPixelCta() {
       if (typeof gtag === 'function') {
         gtag('event', 'add_to_cart', {
           currency: 'CZK',
-          value: 6290,
+          value: 4900,
           items: [{
             item_name: 'Longboard víkend červen 2026',
             item_category: 'Camps',
-            price: 6290,
+            price: 4900,
             quantity: 1
           }]
         });

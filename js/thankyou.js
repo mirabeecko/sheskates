@@ -65,7 +65,7 @@ async function init() {
 
   if (checkoutData) {
     const variantLabel = checkoutData.variant === 'duo' ? 'Já a kámoška' : '1 osoba';
-    const price = checkoutData.variant === 'duo' ? 9435 : 6290;
+    const price = checkoutData.variant === 'duo' ? 7350 : 4900;
 
     variantEl.textContent = variantLabel;
     emailEl.textContent   = checkoutData.email || '—';
@@ -90,12 +90,12 @@ async function init() {
 
     gtag('event', 'purchase', {
       transaction_id: checkoutData?.orderId || paymentIntentId || Date.now().toString(),
-      value: checkoutData?.variant === 'duo' ? 9435 : 6290,
+      value: checkoutData?.variant === 'duo' ? 7350 : 4900,
       currency: 'CZK',
       items: [{
         item_name: checkoutData?.variant === 'duo' ? 'Akce pro dvě' : '1 osoba',
         item_id: checkoutData?.variant || 'unknown',
-        price: checkoutData?.variant === 'duo' ? 9435 : 6290,
+        price: checkoutData?.variant === 'duo' ? 7350 : 4900,
         quantity: 1
       }]
     });
@@ -103,7 +103,7 @@ async function init() {
     // Google Ads conversion
     gtag('event', 'conversion', {
       'send_to': 'AW-18191922314/zQXVCLKSkLQcEIrpyuJD',
-      'value': checkoutData?.variant === 'duo' ? 9435 : 6290,
+      'value': checkoutData?.variant === 'duo' ? 7350 : 4900,
       'currency': 'CZK',
       'transaction_id': checkoutData?.orderId || paymentIntentId || Date.now().toString()
     });
