@@ -37,7 +37,7 @@ async function main() {
   console.log("Creating product: 1 osoba …");
   const productSolo = await stripePost("products", {
     name: "1 osoba",
-    description: "Víkendový surfskate kemp pro ženy – 2 dny / 1 noc, kompletní vybavení, 12h coachingu. Jedna účastnice.",
+    description: "Víkendový surfskate kemp pro ženy – 2 dny / 1 noc, kompletní vybavení. Jedna účastnice.",
   });
   console.log("  Product ID:", productSolo.id);
 
@@ -52,7 +52,7 @@ async function main() {
   console.log("\nCreating product: Já a kámoška …");
   const productDuo = await stripePost("products", {
     name: "Já a kámoška",
-    description: "Víkendový surfskate kemp pro ženy – 2 dny / 1 noc, kompletní vybavení, 12h coachingu. Akce pro dvě osoby.",
+    description: "Víkendový surfskate kemp pro ženy – 2 dny / 1 noc, kompletní vybavení. Akce pro dvě osoby."
   });
   console.log("  Product ID:", productDuo.id);
 
