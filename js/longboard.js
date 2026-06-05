@@ -250,33 +250,6 @@ function setupVideoFallback() {
 }
 
 /* ---- Photo carousel --------------------------------------------- */
-function setupCarousel() {
-  const track = document.getElementById('campCarouselTrack');
-  const prevBtn = document.getElementById('carouselPrev');
-  const nextBtn = document.getElementById('carouselNext');
-  if (!track) return;
-
-  const scrollAmount = 300;
-
-  prevBtn?.addEventListener('click', () => {
-    track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  });
-
-  nextBtn?.addEventListener('click', () => {
-    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  });
-
-  // Touch swipe support
-  let startX = 0;
-  track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', (e) => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      track.scrollBy({ left: diff > 0 ? scrollAmount : -scrollAmount, behavior: 'smooth' });
-    }
-  }, { passive: true });
-}
-
 /* ---- Duo price toggle ------------------------------------------- */
 function toggleDuoPrice() {
   const card = document.getElementById('duoPriceCard');
@@ -344,7 +317,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupHeader();
   setupParallax();
   setupVideoFallback();
-  setupCarousel();
   setupFooterYear();
   setupSmoothScroll();
   setupStickyCta();
