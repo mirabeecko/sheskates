@@ -33,7 +33,7 @@ async function stripePost(endpoint, body) {
 async function main() {
   console.log("🛹  SheSkates Stripe Setup\n");
 
-  // 1 osoba – 6 290 Kč
+  // 1 osoba – 4 900 Kč
   console.log("Creating product: 1 osoba …");
   const productSolo = await stripePost("products", {
     name: "1 osoba",
