@@ -75,10 +75,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         // GTM dataLayer — purchase event se skutečnými daty
         window.dataLayer.push({
           event: 'purchase',
+          transaction_id: window.__order.orderId,
+          value: window.__order.price,
+          currency: 'CZK',
+          items: [{
+            item_name: window.__order.label,
+            item_id: window.__order.variant,
+            price: window.__order.price,
+            quantity: 1
+          }],
           ecommerce: {
-            currency: 'CZK',
-            value: window.__order.price,
             transaction_id: window.__order.orderId,
+            value: window.__order.price,
+            currency: 'CZK',
             items: [{
               item_name: window.__order.label,
               item_id: window.__order.variant,
@@ -93,10 +102,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         const fallbackTxId = stripePaymentIntent || stripeSessionId || ('STRIPE_FB_' + Date.now());
         window.dataLayer.push({
           event: 'purchase',
+          transaction_id: fallbackTxId,
+          value: 4900,
+          currency: 'CZK',
+          items: [{
+            item_name: 'Surfskate kemp — 1 osoba',
+            item_id: 'solo',
+            price: 4900,
+            quantity: 1
+          }],
           ecommerce: {
-            currency: 'CZK',
-            value: 4900,
             transaction_id: fallbackTxId,
+            value: 4900,
+            currency: 'CZK',
             items: [{
               item_name: 'Surfskate kemp — 1 osoba',
               item_id: 'solo',
