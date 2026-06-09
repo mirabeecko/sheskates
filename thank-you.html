@@ -47,11 +47,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script>
     // Načtení dat objednávky z localStorage (uloženo v checkout.js před redirectem na Stripe)
     (function() {
+      window.dataLayer = window.dataLayer || [];
+
       const raw = localStorage.getItem('sheskates_checkout');
       const order = raw ? JSON.parse(raw) : null;
 
       const PRICES = { solo: 4900, duo: 7350 };
       const LABELS = { solo: 'Standardní vstupenka — 1 osoba', duo: 'Akce pro dvě — Já a kámoška' };
+
+      // Stripe URL parametry (fallback když localStorage není k dispozici)
+      const urlParams = new URLSearchParams(window.location.search);
+      const stripePaymentIntent = urlParams.get('payment_intent');
+      const stripeSessionId = urlParams.get('session_id');
 
       window.__order = order ? {
         variant: order.variant,
@@ -80,10 +87,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }]
           }
         });
+      } else {
+        // Fallback: pevné hodnoty pro ověření v GA4 DebugView
+        // (použije se když localStorage není dostupný – např. jiné zařízení)
+        const fallbackTxId = stripePaymentIntent || stripeSessionId || ('STRIPE_FB_' + Date.now());
+        window.dataLayer.push({
+          event: 'purchase',
+          ecommerce: {
+            currency: 'CZK',
+            value: 4900,
+            transaction_id: fallbackTxId,
+            items: [{
+              item_name: 'Surfskate kemp — 1 osoba',
+              item_id: 'solo',
+              price: 4900,
+              quantity: 1
+            }]
+          }
+        });
       }
 
-        // Vyčistit localStorage po zobrazení
-        localStorage.removeItem('sheskates_checkout');
+      // Vyčistit localStorage po zobrazení
+      localStorage.removeItem('sheskates_checkout');
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
