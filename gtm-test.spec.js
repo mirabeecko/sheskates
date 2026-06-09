@@ -18,9 +18,9 @@ for (const pageInfo of pages) {
     // 1. Check that GTM container loaded
     const gtmLoaded = await page.evaluate(() => {
       return window.google_tag_manager !== undefined &&
-             window.google_tag_manager['GTM-PBHK4JHP'] !== undefined;
+             window.google_tag_manager['GTM-KVV3BZGP'] !== undefined;
     });
-    expect(gtmLoaded, 'GTM container GTM-PBHK4JHP should be loaded').toBe(true);
+    expect(gtmLoaded, 'GTM container GTM-KVV3BZGP should be loaded').toBe(true);
 
     // 2. Check that dataLayer exists
     const hasDataLayer = await page.evaluate(() => {
