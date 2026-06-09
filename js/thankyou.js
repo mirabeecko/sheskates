@@ -79,36 +79,6 @@ async function init() {
     // localStorage.removeItem('sheskates_checkout'); // Přesunuto na konec
   }
 
-  // GA4 konverze a Google Ads
-  if (typeof gtag === 'function') {
-    if (checkoutData?.email) {
-      gtag('set', 'user_data', {
-        'email': checkoutData.email,
-        'phone_number': checkoutData.phone || ''
-      });
-    }
-
-    gtag('event', 'purchase', {
-      transaction_id: checkoutData?.orderId || paymentIntentId || Date.now().toString(),
-      value: checkoutData?.variant === 'duo' ? 7350 : 4900,
-      currency: 'CZK',
-      items: [{
-        item_name: checkoutData?.variant === 'duo' ? 'Akce pro dvě' : '1 osoba',
-        item_id: checkoutData?.variant || 'unknown',
-        price: checkoutData?.variant === 'duo' ? 7350 : 4900,
-        quantity: 1
-      }]
-    });
-
-    // Google Ads conversion
-    gtag('event', 'conversion', {
-      'send_to': 'AW-18191922314/zQXVCLKSkLQcEIrpyuJD',
-      'value': checkoutData?.variant === 'duo' ? 7350 : 4900,
-      'currency': 'CZK',
-      'transaction_id': checkoutData?.orderId || paymentIntentId || Date.now().toString()
-    });
-  }
-
   if (checkoutData) {
     localStorage.removeItem('sheskates_checkout');
   }

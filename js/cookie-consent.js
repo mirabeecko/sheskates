@@ -2,21 +2,21 @@
   var STORAGE_KEY = 'sheskates_consent';
 
   function applyConsent(choice) {
-    if (typeof window.gtag !== 'function') return;
+    window.dataLayer = window.dataLayer || [];
     if (choice === 'granted') {
-      window.gtag('consent', 'update', {
+      window.dataLayer.push(['consent', 'update', {
         ad_storage: 'granted',
         analytics_storage: 'granted',
         ad_user_data: 'granted',
         ad_personalization: 'granted'
-      });
+      }]);
     } else {
-      window.gtag('consent', 'update', {
+      window.dataLayer.push(['consent', 'update', {
         ad_storage: 'denied',
         analytics_storage: 'denied',
         ad_user_data: 'denied',
         ad_personalization: 'denied'
-      });
+      }]);
     }
   }
 
