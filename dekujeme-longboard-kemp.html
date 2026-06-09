@@ -12,11 +12,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({
   event: 'purchase',
+  transaction_id: 'LBK_' + Date.now(),
+  value: 4900,
+  currency: 'CZK',
+  items: [{
+    item_name: 'Longboard kemp — 1 osoba',
+    item_id: 'longboard-solo',
+    price: 4900,
+    quantity: 1
+  }],
   ecommerce: {
-    value: 4900.0,
+    transaction_id: 'LBK_' + Date.now(),
+    value: 4900,
     currency: 'CZK',
     items: [{
-      item_name: 'Surfskate kemp'
+      item_name: 'Longboard kemp — 1 osoba',
+      item_id: 'longboard-solo',
+      price: 4900,
+      quantity: 1
     }]
   }
 });
