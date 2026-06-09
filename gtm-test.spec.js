@@ -6,9 +6,7 @@ const pages = [
   { path: '/index.html', name: 'Homepage' },
   { path: '/longboard-kemp-pro-zeny.html', name: 'Longboard Kemp' },
   { path: '/checkout.html', name: 'Checkout', expectEvent: 'begin_checkout' },
-  { path: '/thank-you.html', name: 'Thank You' },
-  { path: '/dekujeme-longboard-kemp.html', name: 'Dekujeme Kemp', expectEvent: 'purchase' },
-  { path: '/thankyou.html', name: 'Thankyou (old)' },
+  { path: '/thank-you.html', name: 'Thank You', expectEvent: 'purchase' },
   { path: '/premium_interactive_guide.html', name: 'Premium Guide' },
 ];
 

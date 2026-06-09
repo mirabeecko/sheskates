@@ -291,7 +291,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="order-detail" id="tyDetail" style="display:none;">
           <p style="margin-bottom:0.5rem;"><strong id="tyName"></strong></p>
-          <p><span id="tyVariant"></span> · <strong id="tyPrice" style="color:var(--accent);"></strong></p>
+          <p id="tyTxRow" style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:0.5rem;">
+            Transaction ID: <code id="tyTxId" style="background:rgba(0,0,0,0.05);padding:0.1rem 0.4rem;border-radius:4px;"></code>
+          </p>
+          <p><span id="tyVariant"></span> · <strong id="tyPrice" style="color:var(--accent);"></strong> <span id="tyCurrency"></span></p>
         </div>
 
         <div class="thankyou-next">
@@ -328,26 +331,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>
     (function() {
       const o = window.__order;
-      if (!o) return;
-
       const detail = document.getElementById('tyDetail');
       const nameEl = document.getElementById('tyName');
       const variantEl = document.getElementById('tyVariant');
       const priceEl = document.getElementById('tyPrice');
+      const currencyEl = document.getElementById('tyCurrency');
+      const txIdEl = document.getElementById('tyTxId');
       const leadEl = document.getElementById('tyLead');
 
-      if (detail) detail.style.display = 'block';
-      if (nameEl) nameEl.textContent = o.firstName + ' ' + o.lastName;
-      if (variantEl) variantEl.textContent = o.label;
-      if (priceEl) priceEl.textContent = o.price.toLocaleString('cs-CZ') + ' Kč';
-      if (leadEl) leadEl.textContent = 'Platba byla úspěšně zpracována. Brzy ti pošleme e-mail s potvrzením a všemi detaily.';
+      if (o) {
+        if (detail) detail.style.display = 'block';
+        if (nameEl) nameEl.textContent = o.firstName + ' ' + o.lastName;
+        if (variantEl) variantEl.textContent = o.label;
+        if (priceEl) priceEl.textContent = o.price.toLocaleString('cs-CZ');
+        if (currencyEl) currencyEl.textContent = 'Kč';
+        if (txIdEl) txIdEl.textContent = o.orderId;
+        if (leadEl) leadEl.textContent = 'Platba byla úspěšně zpracována. Brzy ti pošleme e-mail s potvrzením a všemi detaily.';
 
-      // Skrýt referral CTA pokud už objednávka pro dvě
-      if (o.variant === 'duo') {
-        const ref = document.getElementById('tyReferral');
-        const refText = document.getElementById('tyReferralText');
-        if (ref) ref.style.display = 'none';
-        if (refText) refText.style.display = 'none';
+        // Skrýt referral CTA pokud už objednávka pro dvě
+        if (o.variant === 'duo') {
+          const ref = document.getElementById('tyReferral');
+          const refText = document.getElementById('tyReferralText');
+          if (ref) ref.style.display = 'none';
+          if (refText) refText.style.display = 'none';
+        }
+      } else {
+        // Fallback: číst z dataLayer když localStorage není dostupný
+        const dl = window.dataLayer || [];
+        const purchase = dl.find(item => item.event === 'purchase');
+        if (purchase && detail) {
+          detail.style.display = 'block';
+          if (nameEl) nameEl.textContent = 'Objednávka přijata';
+          const item = purchase.items?.[0] || purchase.ecommerce?.items?.[0];
+          if (variantEl) variantEl.textContent = item?.item_name || 'Surfskate kemp';
+          const val = purchase.value ?? purchase.ecommerce?.value ?? 4900;
+          if (priceEl) priceEl.textContent = val.toLocaleString('cs-CZ');
+          if (currencyEl) currencyEl.textContent = purchase.currency || purchase.ecommerce?.currency || 'Kč';
+          const tx = purchase.transaction_id ?? purchase.ecommerce?.transaction_id;
+          if (txIdEl) txIdEl.textContent = tx || '—';
+          if (leadEl) leadEl.textContent = 'Platba byla úspěšně zpracována. Brzy ti pošleme e-mail s potvrzením.';
+        }
       }
     })();
   </script>
