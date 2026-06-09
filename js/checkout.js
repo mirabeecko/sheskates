@@ -152,18 +152,25 @@ form.addEventListener('submit', async (e) => {
     }));
 
     // GTM dataLayer — begin_checkout event
+    const checkoutValue = data.variant === 'solo' ? 4900 : 7350;
+    const checkoutItem = {
+      item_name: data.variant === 'solo' ? 'Standardní vstupenka' : 'Akce pro dvě',
+      item_id: data.variant,
+      price: checkoutValue,
+      quantity: 1
+    };
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'begin_checkout',
+      transaction_id: orderId || null,
+      value: checkoutValue,
+      currency: 'CZK',
+      items: [checkoutItem],
       ecommerce: {
+        transaction_id: orderId || null,
+        value: checkoutValue,
         currency: 'CZK',
-        value: data.variant === 'solo' ? 4900 : 7350,
-        items: [{
-          item_name: data.variant === 'solo' ? 'Standardní vstupenka' : 'Akce pro dvě',
-          item_id: data.variant,
-          price: data.variant === 'solo' ? 4900 : 7350,
-          quantity: 1
-        }]
+        items: [checkoutItem]
       }
     });
 
