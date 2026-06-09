@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
+<script>window.dataLayer = window.dataLayer || [];</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -92,33 +93,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               item_name: window.__order.label,
               item_id: 'longboard_' + window.__order.variant,
               price: window.__order.price,
-              quantity: 1
-            }]
-          }
-        });
-      } else {
-        // Fallback: pevné hodnoty pro ověření v GA4 DebugView
-        // (použije se když localStorage není dostupný – např. jiné zařízení)
-        const fallbackTxId = stripePaymentIntent || stripeSessionId || ('STRIPE_FB_' + Date.now());
-        window.dataLayer.push({
-          event: 'purchase',
-          transaction_id: fallbackTxId,
-          value: 4900,
-          currency: 'CZK',
-          items: [{
-            item_name: 'Longboard kemp — 1 osoba',
-            item_id: 'longboard_solo',
-            price: 4900,
-            quantity: 1
-          }],
-          ecommerce: {
-            transaction_id: fallbackTxId,
-            value: 4900,
-            currency: 'CZK',
-            items: [{
-              item_name: 'Longboard kemp — 1 osoba',
-              item_id: 'longboard_solo',
-              price: 4900,
               quantity: 1
             }]
           }
@@ -354,22 +328,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           const refText = document.getElementById('tyReferralText');
           if (ref) ref.style.display = 'none';
           if (refText) refText.style.display = 'none';
-        }
-      } else {
-        // Fallback: číst z dataLayer když localStorage není dostupný
-        const dl = window.dataLayer || [];
-        const purchase = dl.find(item => item.event === 'purchase');
-        if (purchase && detail) {
-          detail.style.display = 'block';
-          if (nameEl) nameEl.textContent = 'Objednávka přijata';
-          const item = purchase.items?.[0] || purchase.ecommerce?.items?.[0];
-          if (variantEl) variantEl.textContent = item?.item_name || 'Longboard kemp';
-          const val = purchase.value ?? purchase.ecommerce?.value ?? 4900;
-          if (priceEl) priceEl.textContent = val.toLocaleString('cs-CZ');
-          if (currencyEl) currencyEl.textContent = purchase.currency || purchase.ecommerce?.currency || 'Kč';
-          const tx = purchase.transaction_id ?? purchase.ecommerce?.transaction_id;
-          if (txIdEl) txIdEl.textContent = tx || '—';
-          if (leadEl) leadEl.textContent = 'Platba byla úspěšně zpracována. Brzy ti pošleme e-mail s potvrzením.';
         }
       }
     })();

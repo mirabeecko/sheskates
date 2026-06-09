@@ -72,13 +72,12 @@ function bindPixelCta() {
       }
 
       // GTM DataLayer push
-      if (window.dataLayer) {
-        dataLayer.push({
-          event: 'cta_click',
-          cta_type: 'longboard-kemp-buy',
-          section: btn.closest('[data-section]')?.dataset.section || 'unknown'
-        });
-      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'cta_click',
+        cta_type: 'longboard-kemp-buy',
+        section: btn.closest('[data-section]')?.dataset.section || 'unknown'
+      });
     });
   });
 }
@@ -147,9 +146,8 @@ function setupExitPopup() {
       // });
 
       // GTM event
-      if (window.dataLayer) {
-        dataLayer.push({ event: 'exit_popup_submit', email_domain: email.split('@')[1] });
-      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'exit_popup_submit', email_domain: email.split('@')[1] });
 
       form.innerHTML = '<p style="color:#4ade80; font-weight:600; text-align:center; padding:1rem;">PDF je na cestě! 📬</p>';
     } catch (_) {
