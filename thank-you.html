@@ -15,7 +15,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Děkujeme za objednávku — SheSkates.cz</title>
-  <meta name="description" content="Tvoje rezervace na surfskate kemp byla úspěšně přijata. Brzy ti napíšeme s dalšími informacemi.">
+  <meta name="description" content="Tvoje rezervace na longboard kemp byla úspěšně přijata. Brzy ti napíšeme s dalšími informacemi.">
   <link rel="canonical" href="https://sheskates.cz/thank-you.html">
   <link rel="icon" type="image/png" href="assets/favicon.png">
 
@@ -23,14 +23,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sheskates.cz/thank-you.html">
   <meta property="og:title" content="Děkujeme za objednávku — SheSkates.cz">
-  <meta property="og:description" content="Tvoje rezervace na surfskate kemp byla úspěšně přijata.">
+  <meta property="og:description" content="Tvoje rezervace na longboard kemp byla úspěšně přijata.">
   <meta property="og:image" content="https://sheskates.cz/assets/hero.jpg">
   <meta property="og:locale" content="cs_CZ">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Děkujeme za objednávku — SheSkates.cz">
-  <meta name="twitter:description" content="Tvoje rezervace na surfskate kemp byla úspěšně přijata.">
+  <meta name="twitter:description" content="Tvoje rezervace na longboard kemp byla úspěšně přijata.">
   <meta name="twitter:image" content="https://sheskates.cz/assets/hero.jpg">
 
   <!-- Schema.org -->
@@ -39,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "@context": "https://schema.org",
     "@type": "ConfirmAction",
     "name": "Děkujeme za objednávku",
-    "description": "Potvrzení rezervace místa na surfskate kempu.",
+    "description": "Potvrzení rezervace místa na longboard kempu.",
     "url": "https://sheskates.cz/thank-you.html"
   }
   </script>
@@ -53,7 +53,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       const order = raw ? JSON.parse(raw) : null;
 
       const PRICES = { solo: 4900, duo: 7350 };
-      const LABELS = { solo: 'Standardní vstupenka — 1 osoba', duo: 'Akce pro dvě — Já a kámoška' };
+      const LABELS = { solo: 'Longboard kemp — 1 osoba', duo: 'Longboard kemp — Já a kámoška' };
 
       // Stripe URL parametry (fallback když localStorage není k dispozici)
       const urlParams = new URLSearchParams(window.location.search);
@@ -80,7 +80,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           currency: 'CZK',
           items: [{
             item_name: window.__order.label,
-            item_id: window.__order.variant,
+            item_id: 'longboard_' + window.__order.variant,
             price: window.__order.price,
             quantity: 1
           }],
@@ -90,7 +90,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             currency: 'CZK',
             items: [{
               item_name: window.__order.label,
-              item_id: window.__order.variant,
+              item_id: 'longboard_' + window.__order.variant,
               price: window.__order.price,
               quantity: 1
             }]
@@ -106,8 +106,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           value: 4900,
           currency: 'CZK',
           items: [{
-            item_name: 'Surfskate kemp — 1 osoba',
-            item_id: 'solo',
+            item_name: 'Longboard kemp — 1 osoba',
+            item_id: 'longboard_solo',
             price: 4900,
             quantity: 1
           }],
@@ -116,8 +116,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             value: 4900,
             currency: 'CZK',
             items: [{
-              item_name: 'Surfskate kemp — 1 osoba',
-              item_id: 'solo',
+              item_name: 'Longboard kemp — 1 osoba',
+              item_id: 'longboard_solo',
               price: 4900,
               quantity: 1
             }]
@@ -363,7 +363,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           detail.style.display = 'block';
           if (nameEl) nameEl.textContent = 'Objednávka přijata';
           const item = purchase.items?.[0] || purchase.ecommerce?.items?.[0];
-          if (variantEl) variantEl.textContent = item?.item_name || 'Surfskate kemp';
+          if (variantEl) variantEl.textContent = item?.item_name || 'Longboard kemp';
           const val = purchase.value ?? purchase.ecommerce?.value ?? 4900;
           if (priceEl) priceEl.textContent = val.toLocaleString('cs-CZ');
           if (currencyEl) currencyEl.textContent = purchase.currency || purchase.ecommerce?.currency || 'Kč';

@@ -154,8 +154,8 @@ form.addEventListener('submit', async (e) => {
     // GTM dataLayer — begin_checkout event
     const checkoutValue = data.variant === 'solo' ? 4900 : 7350;
     const checkoutItem = {
-      item_name: data.variant === 'solo' ? 'Standardní vstupenka' : 'Akce pro dvě',
-      item_id: data.variant,
+      item_name: data.variant === 'solo' ? 'Longboard kemp — 1 osoba' : 'Longboard kemp — Já a kámoška',
+      item_id: 'longboard_' + data.variant,
       price: checkoutValue,
       quantity: 1
     };
