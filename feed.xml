@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Produktový XML feed SheSkates.cz
+  Formát: Heureka.cz / Zboží.cz (SHOPITEM), ceny včetně DPH (PRICE_VAT)
+  Generováno: 2026-08-20 | Produkty: kurzy a vstupenky na longboardové akce pro ženy
+-->
+<SHOP>
+  <SHOPINFO>
+    <URL>https://sheskates.cz/</URL>
+    <NAME>SheSkates — longboardové kurzy a akce pro ženy</NAME>
+  </SHOPINFO>
+
+  <!-- ============================================================
+       Longboard víkend pro ženy 27.–29. 6. 2026 — vstupenka 1 osoba
+       ============================================================ -->
+  <SHOPITEM>
+    <ITEM_ID>sk-lv-2026-solo</ITEM_ID>
+    <ITEMGROUP_ID>sk-lv-2026</ITEMGROUP_ID>
+    <PRODUCTNO>sk-lv-2026-solo</PRODUCTNO>
+    <PRODUCTNAME>Longboard víkend pro ženy — vstupenka pro 1 osobu</PRODUCTNAME>
+    <DESCRIPTION>Víkendový kurz jízdy na longboardu pro začátečnice v Praze a okolí. Naučíš se bezpečně jezdit, zatáčet i brzdit pod vedením zkušených lektorek. V ceně je vybavení, coaching i ubytování. Termín konání: 27.–29. 6. 2026. Počet míst je omezen — vstupenka je elektronická, platba probíhá online.</DESCRIPTION>
+    <URL>https://sheskates.cz/checkout.html?variant=solo</URL>
+    <IMGURL>https://sheskates.cz/assets/hero.jpg</IMGURL>
+    <PRICE_VAT>4900.00</PRICE_VAT>
+    <DELIVERY_DATE>0</DELIVERY_DATE>
+    <CATEGORYTEXT>Kurzy a zážitky | Sportovní kurzy</CATEGORYTEXT>
+    <MANUFACTURER>SheSkates</MANUFACTURER>
+    <PARAM>
+      <PARAM_NAME>Termín</PARAM_NAME>
+      <PARAM_VALUE>27.–29. 6. 2026</PARAM_VALUE>
+    </PARAM>
+    <PARAM>
+      <PARAM_NAME>Místo</PARAM_NAME>
+      <PARAM_VALUE>Praha a okolí</PARAM_VALUE>
+    </PARAM>
+    <PARAM>
+      <PARAM_NAME>Rozsah</PARAM_NAME>
+      <PARAM_VALUE>2 dny / 1 noc</PARAM_VALUE>
+    </PARAM>
+    <PARAM>
+      <PARAM_NAME>Vybavení</PARAM_NAME>
+      <PARAM_VALUE>V ceně</PARAM_VALUE>
+    </PARAM>
+    <PARAM>
+      <PARAM_NAME>Pro koho</PARAM_NAME>
+      <PARAM_VALUE>Ženy — začátečnice</PARAM_VALUE>
+    </PARAM>
+    <PARAM>
+      <PARAM_NAME>Typ vstupenky</PARAM_NAME>
+      <PARAM_VALUE>1 osoba</PARAM_VALUE>
+    </PARAM>
+  </SHOPITEM>
+
+  <!-- ============================================================
+       Longboard víkend pro ženy 27.–29. 6. 2026 — vstupenka pro 2
+       („Já a kámoška“ — akční cena, úspora 2 450 Kč)
+       ============================================================ -->
+  <SHOPITEM>
+    <ITEM_ID>sk-lv-2026-duo</ITEM_ID>
+    <ITEMGROUP_ID>sk-lv-2026</ITEMGROUP_ID>
+    <PRODUCTNO>sk-lv-2026-duo</PRODUCTNO>
+    <PRODUCTNAME>Longboard víkend pro ženy — vstupenka pro 2 osoby (já a kámoška)</PRODUCTNAME>
+    <DESCRIPTION>Víkendový kurz jízdy na longboardu pro začátečnice v Praze a okolí — vstupenka pro dvě se slevou 2 450 Kč oproti nákupu dvou samostatných vstupenek. V ceně je vybavení, coaching i ubytování pro obě. Termín konání: 27.–29. 6. 2026. Počet míst je omezen — vstupenka je elektronická, platba probíhá online.</DESCRIPTION>
+    <URL>https://sheskates.cz/checkout.html?variant=duo</URL>
+    <IMGURL>https://sheskates.cz/assets/hero.jpg</IMGURL>
+    <PRICE_VAT>7350.00</PRICE_VAT>
+    <DELIVERY_DATE>0</DELIVERY_DATE>
+    <CATEGORYTEXT>Kurzy a zážitky | Sportovní kurzy</CATEGORYTEXT>
+    <MANUFACTURER>SheSkates</MANUFACTURER>
+    <PARAM>
+      <PARAM_NAME>Termín</PARAM_NAME>
+      <PARAM_VALUE>27.–29. 6. 2026</PARAM_VALUE>
+    </PARAM>
+    <PARAM>
+      <PARAM_NAME>Místo</PARAM_NAME>
+      <PARAM_VALUE>Praha a okolí</PARAM_VALUE>
+    </PARAM>
+    <PARAM>
+      <PARAM_NAME>Rozsah</PARAM_NAME>
+      <PARAM_VALUE>2 dny / 1 noc</PARAM_VALUE>
+    </PARAM>
+    <PARAM>
+      <PARAM_NAME>Vybavení</PARAM_NAME>
+      <PARAM_VALUE>V ceně</PARAM_VALUE>
+    </PARAM>
+    <PARAM>
+      <PARAM_NAME>Pro koho</PARAM_NAME>
+      <PARAM_VALUE>Ženy — začátečnice</PARAM_VALUE>
+    </PARAM>
+    <PARAM>
+      <PARAM_NAME>Typ vstupenky</PARAM_NAME>
+      <PARAM_VALUE>2 osoby (sleva 2 450 Kč)</PARAM_VALUE>
+    </PARAM>
+  </SHOPITEM>
+</SHOP>
