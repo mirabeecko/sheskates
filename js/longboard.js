@@ -5,7 +5,7 @@
 
 /* ---- Shoptet spots count ---------------------------------------- */
 // Napojit na Shoptet API: nahradit SHOPTET_PRODUCT_CODE a endpoint
-const SHOPTET_PRODUCT_CODE = 'longboard-kemp-cerven-2027';
+const SHOPTET_PRODUCT_CODE = 'longboard-kemp-jaro-2027';
 const CAMP_MAX_SPOTS = 12;
 
 async function fetchRemainingSpots() {
@@ -29,7 +29,7 @@ function updateSpots(count) {
 
 /* ---- Countdown timer -------------------------------------------- */
 function startCountdown() {
-  const target = new Date('2027-06-13T23:59:59');
+  const target = new Date('2027-04-09T23:59:59');
   const el = document.getElementById('countdown');
   if (!el) return;
 
@@ -65,7 +65,7 @@ function bindPixelCta() {
       // Meta Pixel
       if (typeof fbq !== 'undefined') {
         fbq('track', 'InitiateCheckout', {
-          content_name: 'Longboard víkend červen 2027',
+          content_name: 'Longboard víkend jaro 2027',
           currency: 'CZK',
           value: 4900
         });

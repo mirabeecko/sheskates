@@ -691,6 +691,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p class="lead">Vyplň údaje a pokračuj na bezpečnou platbu přes Stripe.</p>
 
           <form id="checkoutForm" novalidate>
+            <!-- Výběr termínu (jaro 2027) -->
+            <div class="form-group">
+              <label>Vyber termín <span class="required">*</span></label>
+              <div class="variant-cards">
+                <label class="variant-card">
+                  <input type="radio" name="term" value="2027-04-16" data-label="16.–18. 4. 2027" data-closes="9. 4. 2027" required>
+                  <span class="radio-circle"></span>
+                  <div class="variant-info">
+                    <div class="variant-title">16.–18. 4. 2027</div>
+                    <div class="variant-price">přihlášky do 9. 4. 2027</div>
+                  </div>
+                </label>
+                <label class="variant-card">
+                  <input type="radio" name="term" value="2027-05-14" data-label="14.–16. 5. 2027" data-closes="7. 5. 2027" required>
+                  <span class="radio-circle"></span>
+                  <div class="variant-info">
+                    <div class="variant-title">14.–16. 5. 2027</div>
+                    <div class="variant-price">přihlášky do 7. 5. 2027</div>
+                  </div>
+                </label>
+                <label class="variant-card">
+                  <input type="radio" name="term" value="2027-06-11" data-label="11.–13. 6. 2027" data-closes="4. 6. 2027" required>
+                  <span class="radio-circle"></span>
+                  <div class="variant-info">
+                    <div class="variant-title">11.–13. 6. 2027</div>
+                    <div class="variant-price">přihlášky do 4. 6. 2027</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
             <!-- Variant selection -->
             <div class="form-group">
               <label>Vyber variantu</label>
@@ -772,6 +803,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Sidebar -->
         <aside class="checkout-summary reveal" data-delay="100">
           <h3>Přehled objednávky</h3>
+          <div class="summary-line">
+            <span>Termín</span>
+            <span id="summaryTerm" style="font-weight:600;color:var(--accent);">vyber termín</span>
+          </div>
           <div class="summary-line">
             <span id="summaryVariant">1 osoba</span>
             <span id="summaryPrice">4 900 Kč</span>
