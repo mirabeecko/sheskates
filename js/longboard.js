@@ -128,9 +128,8 @@ function setupExitPopup() {
     if (e.key === 'Escape') hidePopup();
   });
 
-  // Submit — e-mail jde na Form Gateway (tam se ULOŽÍ a odešle e-mailem).
-  // Dřív tu byl jen TODO na Ecomail: formulář sice ukázal „PDF je na cestě",
-  // ale e-mail se NIKAM neuložil ani neodeslal.
+  // Submit — e-mail jde do REZERVAČNÍ SLUŽBY (vlastní systém, mimo TURBOW).
+  // Služba e-mail uloží a pošle notifikaci (ahoj@sheskates.cz + majitel).
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const emailInput = form.querySelector('input[type="email"]');
@@ -138,11 +137,11 @@ function setupExitPopup() {
     if (!email) return;
 
     try {
-      const res = await fetch('https://forms.webyprobyznys.cz/api/forms/sheskates/leadmagnet/submit', {
+      const res = await fetch('https://rezervace.webyprobyznys.cz/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          siteId: 'sheskates',
+          eventId: 'sheskates-longboard-2027',
           formId: 'leadmagnet',
           idempotencyKey: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('klik-' + Date.now()),
           fields: {
@@ -158,6 +157,7 @@ function setupExitPopup() {
       });
       const out = await res.json().catch(() => ({}));
       if (!res.ok || out.ok !== true) throw new Error(out.error || ('HTTP ' + res.status));
+      // out.leadId = ID leadu v rezervační službě
 
       // GTM event
       window.dataLayer = window.dataLayer || [];

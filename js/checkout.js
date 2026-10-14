@@ -2,7 +2,7 @@
  * Checkout logika pro SheSkates (jaro 2027)
  * - výběr termínu (3 jarní víkendy) + varianty (solo / duo)
  * - validace formuláře
- * - objednávka se ULOŽÍ do TURBOW Form Gateway (forms.webyprobyznys.cz)
+ * - objednávka se ULOŽÍ do rezervační služby (rezervace.webyprobyznys.cz)
  *   → majiteli chodí e-mail s objednávkou i obsazeností všech termínů
  * - redirect na Stripe Payment Link (client_reference_id = submissionId)
  */
