@@ -10,7 +10,9 @@
 // ═══════════════════════════════════════════════════════════════
 // KONFIGURACE
 // ═══════════════════════════════════════════════════════════════
-const GATEWAY_URL = 'https://forms.webyprobyznys.cz/api/forms/sheskates/objednavka/submit';
+// Objednávky jdou do REZERVAČNÍ SLUŽBY (vlastní systém, mimo TURBOW).
+const GATEWAY_URL = 'https://rezervace.webyprobyznys.cz/api/orders';
+const EVENT_ID = 'sheskates-longboard-2027';
 const GATEWAY_TIMEOUT_MS = 4500;
 
 const PAYMENT_LINKS = {
@@ -119,9 +121,9 @@ async function sendOrder(payload) {
     });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const json = await res.json();
-    return (json && json.submissionId) || null;
+    return (json && (json.orderId || json.submissionId)) || null;
   } catch (err) {
-    console.warn('Objednávku se nepodařilo uložit do Form Gateway:', err);
+    console.warn('Objednávku se nepodařilo uložit do rezervační služby:', err);
     return null;
   } finally {
     clearTimeout(timer);
@@ -181,9 +183,7 @@ form.addEventListener('submit', async (e) => {
     if (data.promoCode)    fields.promo = data.promoCode;
 
     const payload = {
-      siteId: 'sheskates',
-      formId: 'objednavka',
-      stage: 'final',
+      eventId: EVENT_ID,
       idempotencyKey: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('obj-' + Date.now()),
       fields: fields,
       meta: {
@@ -202,9 +202,9 @@ form.addEventListener('submit', async (e) => {
 
     const submissionId = await sendOrder(payload);
 
-    // Záloha v prohlížeči (kdyby gateway neodpovídala, data zůstanou)
+    // Záloha v prohlížeči (kdyby služba neodpovídala, data zůstanou)
     localStorage.setItem('sheskates_checkout', JSON.stringify({
-      ...data, submissionId, gatewaySaved: Boolean(submissionId), timestamp: Date.now(),
+      ...data, orderId: submissionId, gatewaySaved: Boolean(submissionId), timestamp: Date.now(),
     }));
     localStorage.setItem('sheskates_term', data.term);
 

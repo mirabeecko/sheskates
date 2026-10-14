@@ -505,6 +505,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         V&nbsp;ceně: prkno, chrániče, instruktor, video rozbor, ubytování.
       </p>
     </div>
+    <div class="reveal" data-delay="220">
+      <div class="hero-terms" aria-label="Termíny jaro 2027">
+        <span class="hero-terms-kicker">Vyber si termín</span>
+        <div class="hero-terms-list">
+          <a class="hero-term" href="checkout.html?term=2027-04-16&amp;variant=solo" data-cta="longboard-kemp-buy">
+            <span class="hero-term-date">16.–18. 4. 2027</span>
+            <span class="hero-term-note">přihlášky do 9. 4.</span>
+          </a>
+          <a class="hero-term" href="checkout.html?term=2027-05-14&amp;variant=solo" data-cta="longboard-kemp-buy">
+            <span class="hero-term-date">14.–16. 5. 2027</span>
+            <span class="hero-term-note">přihlášky do 7. 5.</span>
+          </a>
+          <a class="hero-term" href="checkout.html?term=2027-06-11&amp;variant=solo" data-cta="longboard-kemp-buy">
+            <span class="hero-term-date">11.–13. 6. 2027</span>
+            <span class="hero-term-note">přihlášky do 4. 6.</span>
+          </a>
+        </div>
+      </div>
+    </div>
     <div class="reveal" data-delay="260">
       <div class="hero-cta-group">
         <a href="checkout.html?variant=solo" class="btn-accent btn-xl lk-main-cta" data-cta="longboard-kemp-buy">
@@ -1258,6 +1277,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   #wd24-bar { padding: 8px 12px; font-size: 10px; }
   #wd24-bar a { font-size: 11px; }
 }
+
+    /* ── Termíny v hero (jaro 2027) ─────────────────────────── */
+    .hero-terms { margin: 1.5rem 0 0; }
+    .hero-terms-kicker {
+      display: block;
+      font-size: 0.6875rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 0.5rem;
+    }
+    .hero-terms-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.625rem;
+      max-width: 640px;
+    }
+    .hero-term {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      padding: 0.7rem 0.9rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      text-decoration: none;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+    .hero-term:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: rgba(255,77,46,0.14);
+    }
+    .hero-term-date {
+      font-weight: 800;
+      font-size: 0.9375rem;
+      color: #fff;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .hero-term-note { font-size: 0.6875rem; color: rgba(255,255,255,0.6); }
+    @media (max-width: 600px) {
+      .hero-terms-list { grid-template-columns: 1fr; }
+      .hero-term { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
 </style>
 <div id="wd24-bar">
   Web&nbsp;vytvořil&nbsp;
