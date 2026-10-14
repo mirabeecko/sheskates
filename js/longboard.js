@@ -5,7 +5,7 @@
 
 /* ---- Shoptet spots count ---------------------------------------- */
 // Napojit na Shoptet API: nahradit SHOPTET_PRODUCT_CODE a endpoint
-const SHOPTET_PRODUCT_CODE = 'longboard-kemp-cerven-2026';
+const SHOPTET_PRODUCT_CODE = 'longboard-kemp-cerven-2027';
 const CAMP_MAX_SPOTS = 12;
 
 async function fetchRemainingSpots() {
@@ -29,7 +29,7 @@ function updateSpots(count) {
 
 /* ---- Countdown timer -------------------------------------------- */
 function startCountdown() {
-  const target = new Date('2026-06-22T23:59:59');
+  const target = new Date('2027-06-13T23:59:59');
   const el = document.getElementById('countdown');
   if (!el) return;
 
@@ -65,7 +65,7 @@ function bindPixelCta() {
       // Meta Pixel
       if (typeof fbq !== 'undefined') {
         fbq('track', 'InitiateCheckout', {
-          content_name: 'Longboard víkend červen 2026',
+          content_name: 'Longboard víkend červen 2027',
           currency: 'CZK',
           value: 4900
         });
@@ -128,7 +128,9 @@ function setupExitPopup() {
     if (e.key === 'Escape') hidePopup();
   });
 
-  // Submit — napojit na Ecomail
+  // Submit — e-mail jde na Form Gateway (tam se ULOŽÍ a odešle e-mailem).
+  // Dřív tu byl jen TODO na Ecomail: formulář sice ukázal „PDF je na cestě",
+  // ale e-mail se NIKAM neuložil ani neodeslal.
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const emailInput = form.querySelector('input[type="email"]');
@@ -136,21 +138,34 @@ function setupExitPopup() {
     if (!email) return;
 
     try {
-      // TODO: Nahradit Ecomail API endpointem a ID listu
-      // Ecomail API docs: https://ecomail.cz/api
-      // Příklad:
-      // await fetch('https://api2.ecomail.cz/rest/subscribers', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json', 'key': 'ECOMAIL_API_KEY' },
-      //   body: JSON.stringify({ listid: ECOMAIL_LIST_ID, subscriber_data: { email } })
-      // });
+      const res = await fetch('https://forms.webyprobyznys.cz/api/forms/sheskates/leadmagnet/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          siteId: 'sheskates',
+          formId: 'leadmagnet',
+          idempotencyKey: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('klik-' + Date.now()),
+          fields: {
+            email: email,
+            lead_magnet: '5 cviků na stabilitu před Longboard víkendem'
+          },
+          meta: {
+            url: location.href,
+            referrer: document.referrer || undefined,
+            device: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'mobile' : 'desktop'
+          }
+        })
+      });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || out.ok !== true) throw new Error(out.error || ('HTTP ' + res.status));
 
       // GTM event
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'exit_popup_submit', email_domain: email.split('@')[1] });
 
       form.innerHTML = '<p style="color:#4ade80; font-weight:600; text-align:center; padding:1rem;">PDF je na cestě! 📬</p>';
-    } catch (_) {
+    } catch (err) {
+      console.warn('[ExitForm] odeslání selhalo:', err && err.message);
       form.innerHTML = '<p style="color:var(--accent); text-align:center;">Zkus to prosím znovu nebo napiš na ahoj@sheskates.cz</p>';
     }
   });
